@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body,html{
+    background: #ccc;
+}
+.wrapper{
+    width: 70%;
+    margin: 100px auto;
+    
+    
+}
+.wrapper .imgBox{
+    margin: 0px auto;
+    width: 900px;
+    height: 600px;
+}
+img{
+    cursor: pointer;
+    padding: 2px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px; 
+    /* float: left; */
+}
