@@ -1,0 +1,220 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    body {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center center;
+        font-size: 12px;
+        
+       
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            padding-top: 60px;
+            box-sizing: border-box;
+            
+            background-color: rgba(0, 0, 0, 0.2);
+
+            .image {
+                position: relative;
+                width: 70%;
+                height: 0;
+                padding-top: 70%;
+                margin: 0 auto;
+
+                .img-box {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: #000;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 70%;
+                        height: 70%;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            .song-info {
+
+                width: 100%;
+                height: 126px;
+
+                color: #fff;
+                text-align: center;
+
+                margin-top: 40px;
+
+                .song-name {
+                    font-size: 30px;
+                    line-height: 36px;
+                    margin-bottom: 8px;
+                }
+
+            }
+
+            .pro {
+
+                margin-top: 20px;
+
+                display: flex;
+
+                .start-time,
+                .end-time {
+                    width: 60px;
+                    height: 40px;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 40px;
+
+                }
+
+                .pro-wrap {
+                    flex: 1;
+                    position: relative;
+                    overflow: hidden;
+                    .pro-bottom,
+                    .pro-top{
+                        position: absolute;
+                        width: 100%;
+                        height: 5px;
+                        margin-top: -3px; 
+                        top:50%;
+                        border-radius:20px;
+                    }
+                    .pro-bottom{
+                        z-index: 0;              
+                        background: #ccc;
+                        opacity: 0.2;                        
+                    }
+                    .pro-top{
+                        background: #fff;
+                        transform: translateX(-100%);
+                        .slider{
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -10px;
+                            right: -10px;
+                            width: 20px;
+                            height: 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            &::after{
+                                display: block;
+                                width: 4px;
+                                height: 4px;
+                                content: '';
+                                background: #fff;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .control {
+                position: absolute;
+                width: 100%;
+                height: 60px;
+                bottom: 0;
+                display: flex;
+                background: rgba(0, 0, 0, .6);
+
+                .btn {
+                    flex: 1;
+
+                    background-size: 20px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                .likes {
+                    background-image: url(../image/icon-like.png);
+
+                    &.like {
+                        background-image: url(../image/icon-like-solid.png);
+                    }
+                }
+
+                .prev {
+                    background-image: url(../image/icon-prev.png);
+                }
+
+                .play {
+                    background-image: url(../image/icon-play.png);
+
+                    &.playing {
+                        background-image: url(../image/icon-pause.png);
+                    }
+                }
+
+                .next {
+                    background-image: url(../image/icon-next.png);
+                }
+
+                .meaun {
+                    background-image: url(../image/icon-list.png);
+
+                    &.list {
+                        background-image: url(../image/icon-playlist.png);
+                    }
+                    
+                }
+            }
+            .item{
+                    position: absolute;
+                    bottom: 60px;
+                    background-color: #555;
+                    color: #111;
+                    width: 100%;
+                    height: 0;
+                    // border: 1px solid #000;
+                    opacity: 0;
+                    overflow: hidden;
+                    transition: opacity 1s,height 1s;
+                    &.fadein{
+                        height: 200px;
+                        opacity: 0.7;
+                       
+                    }
+                    .item-list{
+                        position: absolute;
+                        top: 0;
+                        padding: 10px;
+                        width: 100%;  
+                        transition: top 0.5s;  
+                        li{
+                            font-family: SIX;
+                            display: flex;
+                            padding: 5px 5px;
+                            border-bottom: 1px solid #999;
+                            span:nth-child(1){
+                                font-weight: bold;
+                                font-size: 16px;
+                            }
+                            span:nth-child(2){
+                                font-size: 10px;
+                                font-weight: bold;
+                                color: #333;
+                            }
+                            &:hover span:nth-child(1){
+                                color: #f40;
+                            }
+                        }
+                    }
+            }
+        }
+    }
+}
