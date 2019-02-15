@@ -1,0 +1,146 @@
+[
+    {
+        "image": "../source/song_1.jpg",
+        "audio": "../source/song_1.mp3",
+        "song": "丑八怪",
+        "album": "意外",
+        "singer": "薛之谦",
+        "duration": 253,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_2.jpg",
+        "audio": "../source/song_2.mp3",
+        "song": "小半",
+        "album": "小梦大半",
+        "singer": "陈粒",
+        "duration": 297,
+        "isLike": false
+    },
+    {
+        "image": "../source/song_3.jpg",
+        "audio": "../source/song_3.mp3",
+        "song": "Shape of You",
+        "album": "÷",
+        "singer": "ed sheeran",
+        "duration": 235,
+        "isLike": false
+    },
+    {
+        "image": "../source/song_4.jpg",
+        "audio": "../source/song_4.mp3",
+        "song": "Just Like This",
+        "album": "Original Mix",
+        "singer": "Deepmaniak",
+        "duration": 291,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_5.jpg",
+        "audio": "../source/song_5.mp3",
+        "song": "PLANET",
+        "album": "3ラムジ",
+        "singer": "ラムジ",
+        "duration": 244,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_6.jpg",
+        "audio": "../source/song_6.mp3",
+        "song": "你满我满",
+        "album": "Can’t Be Half",
+        "singer": "陈柏宇",
+        "duration": 240,
+        "isLike": false
+    },
+    {
+        "image": "../source/song_7.jpg",
+        "audio": "../source/song_7.mp3",
+        "song": "Зая",
+        "album": "Зая",
+        "singer": "Бамбинтон",
+        "duration": 221,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_8.jpg",
+        "audio": "../source/song_8.mp3",
+        "song": "光年之外",
+        "album": "光年之外",
+        "singer": "GEM邓紫棋",
+        "duration": 236,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_9.jpg",
+        "audio": "../source/song_9.mp3",
+        "song": "我们的天空",
+        "album": "163 key(Don't ",
+        "singer": "黄亦明",
+        "duration": 350,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_10.jpg",
+        "audio": "../source/song_10.mp3",
+        "song": "我已经爱上你",
+        "album": "一秒钟而已",
+        "singer": "情词尧/二郎",
+        "duration": 135,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_11.jpg",
+        "audio": "../source/song_11.mp3",
+        "song": "爱的故事上集",
+        "album": "男人深声Unforgettable 20",
+        "singer": "孙耀威",
+        "duration": 240,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_12.jpg",
+        "audio": "../source/song_12.mp3",
+        "song": "魔鬼中的天使",
+        "album": "Sing Studio·唱响录音室作品",
+        "singer": "王腾",
+        "duration": 240,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_13.jpg",
+        "audio": "../source/song_13.mp3",
+        "song": "Cubi - BINGBIAN病变",
+        "album": "BINGBIAN病变 (REMIX)",
+        "singer": "黎智坚措",
+        "duration": 240,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_14.jpg",
+        "audio": "../source/song_14.mp3",
+        "song": "刚好遇见你",
+        "album": "64FU3W4YxX3ZFTmbZ",
+        "singer": "李玉刚",
+        "duration": 201,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_15.jpg",
+        "audio": "../source/song_15.mp3",
+        "song": "醉赤壁",
+        "album": "JJ陆",
+        "singer": "林俊杰",
+        "duration": 282,
+        "isLike": true
+    },
+    {
+        "image": "../source/song_16.jpg",
+        "audio": "../source/song_16.mp3",
+        "song": "酷爱(Live) - live",
+        "album": "港乐&张敬轩 交响音乐会",
+        "singer": "张敬轩",
+        "duration": 252,
+        "isLike": true
+    }
+]

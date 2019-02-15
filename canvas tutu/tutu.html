@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#id{
+			background-image: url('./kobe12.png');
+			background-repeat: no-repeat;
+			background-position: 50%;
+			background-size: contain;
+			border: 1px solid red;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="id" height="800" width="1000">
+		
+	</canvas>
+
+	<script  type="text/javascript" charset="utf-8" async defer>
+
+		
+		
+		(function() {
+
+			var canvas = document.getElementById('id');
+			var ctx = canvas.getContext('2d');
+			ctx.fillStyle = '#ccc';
+			console.log(canvas)
+			var x, y;
+			var H = canvas.height,
+				W = canvas.width;
+			ctx.fillRect(0, 0, W, H);
+			ctx.globalCompositeOperation = 'destination-out';
+			ctx.lineCap = 'round'
+			ctx.lineWidth = 25;
+			canvas.addEventListener('mousedown', down, false);
+
+			function down(e) {
+				var e = e || event;
+				x = e.offsetX;
+				y = e.offsetY;
+
+				document.addEventListener('mousemove', move, false);
+				document.addEventListener('mouseup', up, false);
+			}
+
+			function move(e) {
+				// ctx.strokeStyle = '#fff';
+
+				ctx.moveTo(x, y),
+					ctx.lineTo(e.offsetX, e.offsetY);
+				ctx.stroke();
+				x = e.offsetX;
+				y = e.offsetY;
+
+			}
+
+			function up(e) {
+				document.removeEventListener('mousemove', move, false);
+				console.log('up');
+				clearAll();
+			}
+
+			function clearAll() {
+				var imgData = ctx.getImageData(0, 0, W, H);
+				
+				var data = imgData.data;
+				var row = imgData.height;
+				var count = 0;
+				for (var i = 0; i < data.length; i += 4) {
+					if (data[i + 3] == 0) {
+						count++;
+					}
+				}
+				if (count > row * H * 0.6) {
+					ctx.clearRect(0,0,W,H);
+				}
+			}
+		}())
+
+		// window.onmessage(function(){
+
+		// },'')
+	</script>
+</body>
+</html>

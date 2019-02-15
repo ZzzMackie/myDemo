@@ -1,0 +1,57 @@
+* {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: #326B86;
+        color: #FFFFFF;
+        font: 14px Arial, sans-serif;
+        text-align: center;
+        padding: 30px;
+    }
+
+    #div1 {
+        position: relative;
+        width: 650px;
+        height: 600px;
+        background: #222;
+        margin: 30px auto;
+        padding-top: 50px;
+    }
+
+
+    .son {
+        position: absolute;
+        left: 0px;
+        top: 0;
+        background: #008040;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        z-index: 99;
+    }
+
+
+
+    #move {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: red;
+        filter: alpha(opacity=60);
+        border-radius: 50%;
+        opacity: 0.6;
+        cursor: move;
+        top: 195px;
+        left: 195px;
+    }
+
+    p {
+        width: 500px;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 18px;
+    }
