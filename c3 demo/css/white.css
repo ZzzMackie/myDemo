@@ -1,0 +1,77 @@
+:root,html{
+    width: 100%;
+    height: 100%;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background:radial-gradient(circle at center,#fff,#fff 50%,#aaa);
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.wrapper{
+    width: 50%;
+    background: #000;
+    border-bottom: 1.5em solid #000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -40%);
+}
+
+.wrapper::after,
+.wrapper::before{
+    background: #000;
+    content: '';
+    width: 12em;
+    height: 12em;
+    background: linear-gradient(to bottom, #efefef, #efefef 50%, #000 50%, #000);
+    background-size: 200% 200%;
+    background-position: 0 -100%;
+    border-radius: 50%;
+    position: absolute;
+    -webkit-animation: blink 6s 0.1s infinite;
+    animation: blink 6s 0.1s infinite;
+}
+div.wrapper::after{
+    right: -9em;
+    top: -6em;
+    transform:skewX(-4deg)
+}
+div.wrapper::before{
+    left: -9em;
+    top: -6em;
+    transform:skewX(4deg)
+}
+@-webkit-keyframes blink {
+    0%, 50% {
+      background-position: 0 100%;
+    }
+    85%, 95% {
+      background-position: 0 70%;
+    }
+    100% {
+      background-position: 0 100%;
+    }
+  }
+  
+  @keyframes blink {
+    0%, 50% {
+      background-position: 0 100%;
+    }
+    85%, 95% {
+      background-position: 0 70%;
+    }
+    100% {
+      background-position: 0 100%;
+    }
+  }
+
+
+  a[href^='https'][href$='.pdf'][href*='progua']{
+      color: #f40;
+  }

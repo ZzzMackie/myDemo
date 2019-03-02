@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>tabs</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+	.widget{
+
+		position: absolute;
+		top: calc(50% - 100px);
+		left: calc(50% - 250px);
+		width: 500px;
+		height: 200px;
+		border-radius: 5px;
+		background: skyblue;
+
+	}
+    .widget-tab input {
+        display: none
+    }
+    .widget-tab .widget-title ul li {
+    	display: inline-block;
+    }
+	.widget-tab .widget-box{
+		height: 100px;
+		margin-top: 20px;
+		padding: 20px;
+		color: #ffc;
+		font-size: 24px;
+		background: rgba(0, 0, 0, .2)
+	}
+    .widget-tab .widget-box ul {
+        display: none
+    }
+    .widget-tab .widget-box ul li{
+    	/* word-wrap:break-word; */
+    	/* overflow-wrap: break-word; */
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+    	white-space: normal;
+    }
+
+    #new:checked~.widget-title .new,
+    #hot:checked~.widget-title .hot,
+    #random:checked~.widget-title .random {
+        background: #fcc;
+        color: #fff;
+    }
+
+    #new:checked~.widget-box .new-list,
+    #hot:checked~.widget-box .hot-list,
+    #random:checked~.widget-box .random-list {
+        display: block
+    }
+    </style>
+</head>
+
+<body>
+    <div class="widget widget-tab">
+        <input type="radio" name="widget-tab" id="new" checked="checked" />
+        <input type="radio" name="widget-tab" id="hot" />
+        <input type="radio" name="widget-tab" id="random" />
+        <div class="widget-title inline-block">
+            <ul>
+                <li class="new">
+                    <label for="new">最新博文</label>
+                </li>
+                <li class="hot">
+                    <label for="hot">热评博文</label>
+                </li>
+                <li class="random">
+                    <label for="random">随机博文</label>
+                </li>
+            </ul>
+        </div>
+        <div class="widget-box">
+            <ul class="new-list">
+                <li>aoidasihdioashfioashfafasfa</li>
+            </ul>
+            <ul class="hot-list">
+                <li>asdoabsuoasboausbfioashcuznuchquuoqfoiowqeqeqahfhgioa</li>
+            </ul>
+            <ul class="random-list">
+                <li>这是麦迪的阿吉豆年纪大</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

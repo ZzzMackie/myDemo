@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>text</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		body{
+			background-color: #000;
+		}
+		div{
+			position: absolute;
+			width: 600px;
+			height: 200px;
+			font-size: 100px;
+			top: calc(50% - 100px);
+			left: calc(50% - 300px);
+			color: red;
+			text-shadow: 0px 0px 5px #f00,
+						 0px 0px 10px #f10,
+						 0px 0px 15px #f20;
+			transition: all 1.5s;
+
+		}
+		div:hover{
+			text-shadow: 40px 0px 10px #0ff,
+						 -40px 0px 20px #ff0,
+						 -60px 40px 10px #00f,
+						 -40px -40px 10px #f0f,
+						 0px -40px 10px #ff5,
+						 40px 60px 10px #0f0;
+		}
+		div::before{
+			content: "真的帅";
+			display: block;
+			text-shadow: 0px 1px 0px black,1px 0px 0px #fff;
+		}	
+		p{
+			position: absolute;
+			width: 500px;
+			height: 200px;
+			font-size: 120px;
+			font-weight: bold;
+			color: #f40;
+			background-image: url('../A html css/image/psb (10).jpg');
+			background-size: 400px 300px;
+			background-position: -400px -50px;
+			background-repeat: no-repeat;
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-fill-color: transparent;
+			text-shadow: -10px -10px 3px rgba(255, 0, 255, .2),
+						 	10px 10px 3px rgba(0, 255, 255, .4);
+						 	transition: all .5s;
+		}
+		p:hover{
+			background-position: 0 -50px;
+		}
+
+	</style>
+</head>
+<body>
+	<p>真的</p>
+	<div>
+		郑楚辉太帅了
+	</div>
+</body>
+</html>

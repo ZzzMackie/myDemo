@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大白</title>
+    <link rel="stylesheet" href="css/white.css">
+</head>
+<body>
+    <div class="wrapper"></div>
+    <!-- <a href="https:www.baiduprogua.pdf">12</a>
+    <a href="https:www.baiduprogua.pdf">34</a>
+    <a href="https:www.baiduprogua">5</a> -->
+    <script>
+        // 获取url数据
+        function u (url){
+            const arr = url.split('?');
+            const newArr = arr[1].split('&');
+            newArr.forEach( item => {
+                console.log(item)
+            }) 
+        }
+        u("https:www.baiduprogua.pdf/query/ads?channerlid=123&name=xiaolan&age=23");
+        // 去除开头结尾空格
+        function trim (str){
+            const reg = /^\s|\s$/;
+            return str.replace(reg,'');
+        }
+        // 正则验证邮箱
+        function eMail(str){
+            const reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+            if(reg.test(str)){
+                return str
+            }else{
+                alert('格式不匹配')
+            }
+        }
+        
+    </script>
+</body>
+</html>
