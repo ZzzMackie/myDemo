@@ -9,6 +9,12 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "browserslist": [
+    "defaults",
+    "ie >= 8",
+    "last 3 versions",
+    "> 1%"
+  ],
   "devDependencies": {
     "autoprefixer": "^9.4.3",
     "babel-core": "^6.26.3",
@@ -34,5 +40,8 @@
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "less-loader": "^4.1.0"
   }
 }
