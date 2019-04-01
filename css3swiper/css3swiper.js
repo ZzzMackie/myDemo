@@ -14,6 +14,7 @@
 		for(let i = 0; i < centerL; i ++){
 			lNum = countPlay - i - 1;
 			rNum = countPlay + i + 1;
+			console.log(lNum,rNum)
 			if(rNum > last){
 				rNum -= len;
 			}
@@ -49,7 +50,7 @@
 			})
 		}, function() {
 			/* Stuff to do when the mouse leaves the element */
-			play();
+			// play();
 			$(this).css({
             'border':'none',
             

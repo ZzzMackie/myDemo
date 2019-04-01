@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: calc(100vw/750*100);
+        }
+
+        body {
+            padding-top: 1.2rem;
+            font: 14px/1.75 -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .s {
+            position: fixed;
+            top: 1.2rem;
+            width: 0;
+            height: 100vh;
+            opacity: 0;
+            background: #000;
+            color: #fff;
+            transition: all .5s;
+            transform: translateX(100vw);
+        }
+
+        .s.opens {
+            transform: translateX(0);
+            width: 100vw;
+            opacity: .7;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="header">
+
+    </section>
+    <div class="s" id="k">sadasd</div>
+    <script src="//ossweb-img.qq.com/images/js/jquery/jquery-1.11.3.min.js"></script>
+    <script src="./navHeader.js"></script>
+    <script src="../jsku/jsku.js"></script>
+    <script>
+        var k = document.getElementById('k');
+        $('.header').navHeader({
+            headerDesc: '三生三世十里桃花',
+            headerDescText: '我爱你哦',
+            headerAppointBg: `//game.gtimg.cn/images/3s/m/m201811/icon.png`,
+            headerLogoAlt: `三生三世十里桃花手游`,
+            headerLogo: 'https://game.gtimg.cn/images/3s/m/m201811/logo.png',
+            headerLogoLink: ['https://3s.qq.com/m/main.shtml', 'https://3s.qq.com/'],
+            headerMenu: true
+        });
+        function c() {
+            $('.s').toggleClass('opens')
+        }
+        console.log(_FunSpace.throttle)
+        $('.header-btns ul').click(_FunSpace.throttle(c, 500))
+        function b(e) { console.log(e) }
+        _FunSpace.addEvent(k, 'click', b, false);
+        console.log(_FunSpace.trimEnd('         cl   ick           '));
+
+        var o = {
+            x: '1',
+            y: {
+                s: ['ss', 'aas','ss'],
+                a: function () {
+                    console.log('aa')
+                }
+            }
+        }
+        var o1 = {};
+        _FunSpace.deepClone(o,o1);
+        var o2 = _FunSpace.jsonDClone(o);
+        function Fa () {
+            this.name = 'deng'
+        }
+        Fa.prototype.l = 'asa'
+        function Son () {
+            Fa.call(this)
+        }
+        _FunSpace.inherit(Son,Fa);
+        var son = new Son();
+        var f = new Fa();
+    </script>
+</body>
+
+</html>
