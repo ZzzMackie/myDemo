@@ -40,6 +40,20 @@
             opacity: .7;
             z-index: 999;
         }
+
+        .img-ratio {
+            width: 100%;
+            position: relative;
+            padding-top: 75%;
+        }
+
+        .img-ratio>img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     </style>
 </head>
 
@@ -47,6 +61,9 @@
     <section class="header">
 
     </section>
+    <div class="img-ratio">
+        <img src="http://via.placeholder.com/640x384">
+    </div>
     <div class="s" id="k">sadasd</div>
     <script src="//ossweb-img.qq.com/images/js/jquery/jquery-1.11.3.min.js"></script>
     <script src="./navHeader.js"></script>
@@ -56,8 +73,8 @@
         $('.header').navHeader({
             headerDesc: '三生三世十里桃花',
             headerDescText: '我爱你哦',
-            headerAppointBg: `//game.gtimg.cn/images/3s/m/m201811/icon.png`,
-            headerLogoAlt: `三生三世十里桃花手游`,
+            headerAppointBg: '//game.gtimg.cn/images/3s/m/m201811/icon.png',
+            headerLogoAlt: '三生三世十里桃花手游',
             headerLogo: 'https://game.gtimg.cn/images/3s/m/m201811/logo.png',
             headerLogoLink: ['https://3s.qq.com/m/main.shtml', 'https://3s.qq.com/'],
             headerMenu: true
@@ -74,23 +91,23 @@
         var o = {
             x: '1',
             y: {
-                s: ['ss', 'aas','ss'],
+                s: [1, 0, 2, 1, 2],
                 a: function () {
                     console.log('aa')
                 }
             }
         }
         var o1 = {};
-        _FunSpace.deepClone(o,o1);
+        _FunSpace.deepClone(o, o1);
         var o2 = _FunSpace.jsonDClone(o);
-        function Fa () {
+        function Fa() {
             this.name = 'deng'
         }
         Fa.prototype.l = 'asa'
-        function Son () {
+        function Son() {
             Fa.call(this)
         }
-        _FunSpace.inherit(Son,Fa);
+        _FunSpace.inherit(Son, Fa);
         var son = new Son();
         var f = new Fa();
     </script>

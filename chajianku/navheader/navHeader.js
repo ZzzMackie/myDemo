@@ -2,8 +2,8 @@
  * @Author: mikey.sehui 
  * @Date: 2019-04-01 11:55:43 
  * @Last Modified by: mikey.sehui
- * @Last Modified time: 2019-04-01 14:47:34
- * 
+ * @Last Modified time: 2019-04-02 17:51:16
+ * 移动端腾讯手游导航栏
  * 必须有这些样式初始化
  * body {
             padding-top: 1.2rem;
