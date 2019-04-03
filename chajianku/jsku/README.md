@@ -1,18 +1,19 @@
-## Functions
+## Object
 
 <dl>
-<dt><a href="#name - _method">name - _method()</a> ⇒ <code>this</code></dt>
-<dd><p>在Function的原型链上扩展的方法用来给原型添加方法的函数</p>
+<dt><a href="#name - _FunSpace">name - _FunSpace.function()</a></dt>
+<dd><p>一个扩展了各种方法的对象 可以通过上面的方式去调用他的方法当然还有静态方法那是内部函数需要用到的，不能改动，否则会影响一些功能，这里还兼容了原生的一些方法比如Array.isArray,Array.prototype.indexOf,还扩展了数组的静态方法_dim,_matrix,在原型上添加了去重的方法unique</p>
 </dd>
 </dl>
 
 <a name="name - _method"></a>
 
 ## name - \_method() ⇒ <code>this</code>
-在Function的原型链上扩展的方法用来给原型添加方法的函数
+在Function的原型链上扩展的方法用来给构造函数原型添加方法的函数
 
 **Kind**: global function  
 **Extends**: <code>Function</code>  
+**Examples**: Array._method('is',function(){})  
 
 | Type | Description |
 | --- | --- |
@@ -31,9 +32,10 @@
 <a name="- _FunSpace"></a>
 
 ## .- \_FunSpace : <code>object</code>
-一个命名空间 返回的一个实例对象
+一个命名空间 返回的一个实例对象 这个就是主模块 可以调用对象里的方法
 
 **Kind**: instance namespace  
+**Examples**: _FunSpace._typeof(null)  
 <a name="name - memoizer"></a>
 
 ## .name - memoizer() ⇒ <code>function</code>

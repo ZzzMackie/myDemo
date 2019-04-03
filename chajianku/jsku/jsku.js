@@ -2,11 +2,13 @@
  * @Author: mikey.zhaopeng
  * @Date: 2019-04-01 20:42:51
  * @Last Modified by: mikey.sehui
- * @Last Modified time: 2019-04-03 18:00:58
+ * @Last Modified time: 2019-04-03 18:10:05
  */
+
 /** 
- * 在Function的原型链上扩展的方法用来给原型添加方法的函数
+ * 在Function的原型链上扩展的方法用来给构造函数原型添加方法的函数
  * @function name - _method
+ * @examples Array._method('is',function(){})
  * @augments Function
  * @param {string} - name
  * @param {Function} - fn
@@ -21,8 +23,9 @@ Function.prototype._method = function (name, fn) {
   return this;
 };
 /**
- * 一个命名空间 返回的一个实例对象
+ * 一个命名空间 返回的一个实例对象 这个就是主模块 可以调用对象里的方法
  * @namespace - _FunSpace
+ * @examples _FunSpace._typeof(null)
  * @global - _FunSpace
  * @instance {Object} - _FunSpace
  */
