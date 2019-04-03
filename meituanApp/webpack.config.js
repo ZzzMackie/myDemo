@@ -42,7 +42,7 @@ module.exports = {
             	test:/\.less$/,
             	use:[Minify.loader,'css-loader','less-loader']
             },
-            {test: /.css$/, use: ['style-loader', 'css-loader','postcss-loader']},
+            {test: /\.css$/, use: ['style-loader', 'css-loader','postcss-loader']},
             //img
             {
             	test:/\.(png|jpg|gif|woff|ttf|eot|svg)$/i,

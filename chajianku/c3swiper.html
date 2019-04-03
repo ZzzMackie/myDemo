@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="GBK">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="robots" content="all">
+    <meta name="author" content="Tencent-CP">
+    <meta name="Copyright" content="Tencent">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta itemprop="name" content="" />
+    <meta itemprop="description" content="" />
+    <meta itemprop="image" content="" />
+    <link rel="icon" href="" type="image/x-icon">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="swiper"></div>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="./c3swiper.js"></script>
+    <script>
+        const obj = {
+            images: ['./IMG/1.jpg', './IMG/2.jpg', './IMG/3.jpg', './IMG/4.jpg', './IMG/5.jpg', './IMG/6.jpg', './IMG/7.jpg', './IMG/8.jpg'],
+            width: 200,
+            height: 510,
+            direction: 'prev',
+            autoTimer: 3000,
+        }
+        $('.swiper').swiper(obj);
+    </script>
+</body>
+
+</html>

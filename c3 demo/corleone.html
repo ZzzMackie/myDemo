@@ -1,0 +1,80 @@
+<html Lang="en-zh">
+<head>
+	<meta charset="utf-8">
+	<title>基础标签</title>
+	<meta content="服装" name="Keywords">
+	<meta content="英伦" name="description">
+	<style type="text/css" media="screen">
+		div{
+			position: absolute;
+			top: calc(50% - 50px);
+			left: calc(50% - 50px);
+			width: 100px;
+			height: 100px;
+			border-radius: 5px;
+			background: #fff;
+			box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+			transition: all .6s;
+			background-image: url('./image/bag.JPG');
+			background-size: 100% 100%;
+		}
+		div::after{
+			position: absolute;
+			top: 0;
+			left: 0;
+			box-shadow: 10px 10px 15px rgba(0, 0, 0, .3);
+			opacity: 0;
+			transition: all .6s;
+		}
+		div:hover{
+			transform: scale(1.5, 1.5);
+		}
+		div:hover div::after{
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		
+	</div>
+	
+   <!--  <div style="color: #f40">
+    	<p>段落标签</p>
+	    <h1>标题</h1>
+	    <strong>加粗</strong>
+	    <em>斜体</em>标签可套
+	    <del>￥40</del>
+	    <address>广东青年职业学院</address>
+        <div></div>
+        <span>
+        	Life is shit!!!美好的生活！！！
+	lang ="en"是告诉搜索引擎爬虫，我们的网站是关于什么内容的，en是英文，zh是中文
+
+        </span>
+
+    </div> -->
+
+	<script type="text/javascript">
+		function bubbleSort (arr){
+			let len = arr.length;
+			for(let i = len ; i >= 2; --i){
+				for (let j = 0; j < len; j++){
+					if(arr[j] > arr[j + 1]){
+						let temp = null;
+						temp   = arr[j];
+						arr[j] = arr[ j + 1];
+						arr[j + 1] = temp;
+
+					}	
+				}
+			}
+			return arr;
+		}
+		let arr = [1,2,4,3,7,10];
+		console.log(bubbleSort(arr))
+	</script>
+
+</body>
+
+</html>

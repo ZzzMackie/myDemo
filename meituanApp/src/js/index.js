@@ -4,6 +4,7 @@ require('../less/test2.css');
 require('../plug/css/swiper.min.css');
 require('../webfont/iconfont.css');
 require("expose-loader?$!jquery");
+// swiper插件不支持require
 import Swiper from 'swiper';
 $(function () {
     //初始化插件实例

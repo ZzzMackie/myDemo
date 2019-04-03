@@ -5,11 +5,11 @@
           <img :src="item.imgUrl" alt="">
           <dt>{{item.title}}</dt>
           <dd>
-              <i class="el-icon-star-on icon" ></i>
-              <i class="el-icon-star-on icon" ></i>
-              <i class="el-icon-star-on icon" ></i>
-              <i class="el-icon-star-on icon" ></i>
-              <i class="el-icon-star-off icon" ></i>
+              <i :class="{'el-icon-star-on':item.score >= 1, 'el-icon-star-off':item.score < 1, 'icon':true}" ></i>
+              <i :class="{'el-icon-star-on':item.score >= 2, 'el-icon-star-off':item.score < 2, 'icon':true}" ></i>
+              <i :class="{'el-icon-star-on':item.score >= 3, 'el-icon-star-off':item.score < 3, 'icon':true}" ></i>
+              <i :class="{'el-icon-star-on':item.score >= 4, 'el-icon-star-off':item.score < 4, 'icon':true}" ></i>
+              <i :class="{'el-icon-star-on':item.score >= 5, 'el-icon-star-off':item.score < 5, 'icon':true}" ></i>
               <span class="pingjia">{{item.commentNum}}条评价</span>
           </dd>
           <dd class="nth">{{item.areaName}}</dd>
@@ -32,9 +32,10 @@ export default {
   },
   created() {
     GetApi.getRecommend().then(res => {
-      console.log(res);
+
       if (res.status == 200) {
         this.recommend = res.data.data;
+        console.log(res.data.data);
       }
     });
   }

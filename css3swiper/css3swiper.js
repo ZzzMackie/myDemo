@@ -18,10 +18,10 @@
 				rNum -= len;
 			}
 			oImg.eq(lNum).css({
-				transform : 'translateX('+ (-150 * (i + 1)) +'px) translateZ('+ (200 - i * 100) +'px) rotateY(30deg)'
+				transform : 'translateX('+ (-200 * (i + 1)) +'px) translateZ('+ (200 - i * 100) +'px) rotateY(0deg)'
 			});
 			oImg.eq(rNum).css({
-				transform : 'translateX('+ (150 * (i + 1)) +'px) translateZ('+ (200 - i * 100) +'px) rotateY(-30deg)'
+				transform : 'translateX('+ (200 * (i + 1)) +'px) translateZ('+ (200 - i * 100) +'px) rotateY(0deg)'
 			})
 			oImg.removeClass('active');
 			// console.log(lNum,rNum)

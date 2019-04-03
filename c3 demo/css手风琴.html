@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     *{
+         padding: 0;
+         margin: 0;
+         text-decoration: none;
+         color: #ccc;
+     }
+     body{
+         background: #999;
+     }
+    .wrapper{
+        width: 500px;
+        height: 500px;
+        margin: 100px auto;
+        border: 1px solid #ccc;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-radius: 5px;
+    }
+    .comand{
+        width: 100%;
+        padding: 10px 10px 10px 0;
+    }
+    .wrapper > .comand > h4{
+        background: #333;
+        color: #fff;
+        padding: 10px;
+        /* margin: 20px; */
+        box-shadow: 5px 5px 2px #ccc;
+        border-radius: 10px;
+    }
+    .wrapper > .comand > h4 a{
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+   
+     .comand > h4 + div{
+        display: none;
+        padding: 10px;
+        color: #000;
+    }
+     .comand > h4 + div:target{
+        display: block;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="comand">
+            <h4><a href="#html">HTML</a></h4>
+            <div id="html">html</div>
+        </div>
+        <div class="comand">
+            <h4><a href="#css">CSS</a></h4>
+            <div id="css">css</div>
+        </div>
+        <div class="comand">
+            <h4><a href="#js">JS</a></h4>
+            <div id="js">js</div>
+        </div>
+    </div>
+</body>
+</html>

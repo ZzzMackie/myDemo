@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8" />
+    <title>repeating-radial-gradient()_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+    <style>
+    html,:root,body{
+        width: 100%;
+        height: 100%;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div {
+        width: 100%;
+        height: 100%;
+        /* margin-top: 10px; */
+        /* border: 1px solid #ddd; */
+    }
+
+    .test {
+        background: repeating-radial-gradient(circle, #f00 0, #ff0 1%, #f00 1%);
+        animation: move 2s linear infinite  alternate; 
+        /* transition: all .6s; */
+    }
+    /* .test:hover{
+        background: repeating-radial-gradient(circle, #f00 0, #ff0 15%, #f00 20%);
+    } */
+    @keyframes move{
+        0%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 1%, #f00 1%);
+        }
+        5%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 2%, #f00 2%);
+        }
+        10%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 3%, #f00 3%);
+        }
+        15%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 4%, #f00 4%);
+        }
+        20%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 5%, #f00 5%);
+        }
+        25%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 6%, #f00 6%);
+        }
+        30%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 7%, #f00 7%);
+        }
+        35%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 8%, #f00 8%);
+        }
+        40%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 9%, #f00 9%);
+        }
+        45%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 10%, #f00 10%);
+        }
+        50%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 11%, #f00 11%);
+        }
+        55%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 12%, #f00 12%);
+        }
+        60%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 13%, #f00 13%);
+        }
+        65%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 14%, #f00 14%);
+        }
+        70%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 15%, #f00 15%);
+        }
+        
+        75%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 16%, #f00 16%);
+        }
+        80%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 17%, #f00 17%);
+        }
+        85%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 18%, #f00 18%);
+        }
+        90%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 19%, #f00 19%);
+        }
+        95%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 20%, #f00 20%);
+        }
+        100%{
+            background: repeating-radial-gradient(circle, #f00 0, #ff0 21%, #f00 21%);
+        }
+        
+    }
+
+    
+    </style>
+</head>
+
+<body>
+    <div class="test"></div>
+  
+</body>
+
+</html>
