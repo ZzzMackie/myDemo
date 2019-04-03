@@ -1,0 +1,15 @@
+{
+  "name": "mine-jsku-es5",
+  "version": "1.0.0",
+  "main": "jsku.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jsdoc": "jsdoc2md jsku.js > README.md"
+  },
+  "keywords": [
+    "es5"
+  ],
+  "author": "mackiezzzz",
+  "license": "ISC",
+  "description": ""
+}

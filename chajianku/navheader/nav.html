@@ -82,10 +82,13 @@
         function c() {
             $('.s').toggleClass('opens')
         }
-        console.log(_FunSpace.throttle)
         $('.header-btns ul').click(_FunSpace.throttle(c, 500))
-        function b(e) { console.log(e) }
-        _FunSpace.addEvent(k, 'click', b, false);
+
+        function b(e) { 
+            console.log(e)
+         }
+         
+        _FunSpace.addEvent(k, 'click', bbc, false);
         console.log(_FunSpace.trimEnd('         cl   ick           '));
 
         var o = {
@@ -110,6 +113,24 @@
         _FunSpace.inherit(Son, Fa);
         var son = new Son();
         var f = new Fa();
+        var sss = _FunSpace.memoizer([1,2],function(recur,n){
+            return recur(n-1) + recur(n-2);
+        })
+        console.log(sss(6));
+        console.log(_FunSpace.randomStrNum(10)())
+
+        function cc () {
+            var odiv = document.createElement('div');
+            odiv.innerText = 'saasdas';
+            odiv.style.display = 'none';
+            document.body.appendChild(odiv);
+            return odiv;
+        }
+        var sc = _FunSpace.singleFun(cc);
+        function bbc () {
+            var cd = sc();
+            cd.style.display = 'block';
+        }
     </script>
 </body>
 
