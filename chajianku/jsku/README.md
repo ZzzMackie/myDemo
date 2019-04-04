@@ -1,8 +1,8 @@
 ## Object
 
 <dl>
-<dt><a href="#name - _FunSpace">name - _FunSpace.function()</a></dt>
-<dd><p>一个扩展了各种方法的对象 可以通过上面的方式去调用他的方法当然还有静态方法那是内部函数需要用到的，不能改动，否则会影响一些功能，这里还兼容了原生的一些方法比如Array.isArray,Array.prototype.indexOf,还扩展了数组的静态方法_dim,_matrix,在原型上添加了去重的方法unique</p>
+<dt><a href="#name - _FunSpace">name - _FunSpace.function()</a> ⇒ <code>this</code></dt>
+<dd><p>一个扩展了各种方法的对象 可以通过上面的方式去调用他的方法当然还有静态方法那是内部函数需要用到的，不能改动，否则会影响一些功能，这里还兼容了原生的一些方法比如Array.isArray,Array.prototype.indexOf,还扩展了数组的静态方法_dim,_matrix,arrayEqual在原型上添加了去重的方法unique</p>
 </dd>
 </dl>
 
@@ -29,10 +29,10 @@
 ### new FunSpace()
 一个构造函数
 
-<a name="- _FunSpace"></a>
+<a name="- _FunSpace $FS"></a>
 
-## .- \_FunSpace : <code>object</code>
-一个命名空间 返回的一个实例对象 这个就是主模块 可以调用对象里的方法
+## .- \_FunSpace $FS : <code>object</code>
+一个命名空间 定义了一个全局的实例对象 可以调用对象里的方法
 
 **Kind**: instance namespace  
 **Examples**: _FunSpace._typeof(null)  
@@ -244,4 +244,228 @@
 | Type | Description |
 | --- | --- |
 | <code>function</code> | fn |
+
+<a name="name - isPalindrome"></a>
+
+## .name - isPalindrome() ⇒ <code>Boolean</code>
+检测是否是回文串字符串
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | str |
+
+<a name="name - reverseString"></a>
+
+## .name - reverseString() ⇒ <code>String</code>
+反转字符串不用reverse方法解决
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | str |
+
+<a name="name - arrayEqual"></a>
+
+## .name - arrayEqual() ⇒ <code>Boolean</code>
+判断2个数组是否一样
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>Array</code> | arr |
+| <code>Array</code> | other |
+
+<a name="name - hasClass"></a>
+
+## .name - hasClass() ⇒ <code>Boolean</code>
+判断元素是否有某个class
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>HTMLElement</code> | ele |
+| <code>String</code> | cls |
+
+<a name="name - addClass"></a>
+
+## .name - addClass() ⇒ <code>this</code>
+元素添加class
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>HTMLElement</code> | ele |
+| <code>String</code> | cls |
+
+<a name="name - removeClass"></a>
+
+## .name - removeClass() ⇒ <code>this</code>
+元素移除class
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>HTMLElement</code> | ele |
+| <code>String</code> | cls |
+
+<a name="name - setCookie"></a>
+
+## .name - setCookie() ⇒ <code>this</code>
+设置cookie
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | name |
+| <code>String</code> | value |
+| <code>Number</code> | days |
+
+<a name="name - getCookie"></a>
+
+## .name - getCookie() ⇒ <code>Boolean</code>
+获得cookie
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | name |
+
+<a name="name - removeCookie"></a>
+
+## .name - removeCookie() ⇒ <code>this</code>
+移除cookie
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | name |
+
+<a name="name - getExplore"></a>
+
+## .name - getExplore() ⇒ <code>String</code>
+获取当前浏览器信息
+
+**Kind**: instance function  
+<a name="name - getOS"></a>
+
+## .name - getOS() ⇒ <code>String</code>
+获取当前操作系统信息
+
+**Kind**: instance function  
+<a name="name - getScrollTop"></a>
+
+## .name - getScrollTop() ⇒ <code>Number</code>
+获取滚动条距离顶部距离
+
+**Kind**: instance function  
+<a name="name - getScrollLeft"></a>
+
+## .name - getScrollLeft() ⇒ <code>Number</code>
+获取滚动条距离左边距离
+
+**Kind**: instance function  
+<a name="name - scrollTo"></a>
+
+## .name - scrollTo() ⇒ <code>this</code>
+滚动到指定位置
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>Number</code> | x |
+| <code>Number</code> | y |
+
+<a name="name - requestAnimate"></a>
+
+## .name - requestAnimate() ⇒ <code>function</code>
+requestAnimationFrame函数 返回一个函数 传回调
+
+**Kind**: instance function  
+
+| Type |
+| --- |
+| <code>function</code> | 
+
+<a name="name - isEmail"></a>
+
+## .name - isEmail() ⇒ <code>Boolean</code>
+判断是否为邮箱地址
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | str |
+
+<a name="name - isIdCard"></a>
+
+## .name - isIdCard() ⇒ <code>Boolean</code>
+判断是否为身份证号
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> \| <code>Number</code> | str |
+
+<a name="name - isPhoneNum"></a>
+
+## .name - isPhoneNum() ⇒ <code>Boolean</code>
+判断是否为手机号
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> \| <code>Number</code> | str |
+
+<a name="name - isUrl"></a>
+
+## .name - isUrl() ⇒ <code>Boolean</code>
+判断是否为URL地址
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | str |
+
+<a name="name - digitUppercase"></a>
+
+## .name - digitUppercase() ⇒ <code>String</code>
+现金额转中文
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>Number</code> | n |
+
+<a name="name - getNowTime"></a>
+
+## .name - getNowTime() ⇒ <code>Number</code>
+获取当前时间 当前距离1970/1/1 午夜距离该日期时间的毫秒数；
+
+**Kind**: instance function  
+<a name="name - formatPassTime"></a>
+
+## .name - formatPassTime(startTime) ⇒ <code>String</code>
+格式化startTime距现在的已过时间
+
+**Kind**: instance function  
+
+| Param | Type |
+| --- | --- |
+| startTime | <code>Date</code> | 
 
