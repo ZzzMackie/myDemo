@@ -88,7 +88,7 @@
 
 <a name="name - removeEvent"></a>
 
-## .name - removeEvent()
+## .name - removeEvent() ⇒ <code>this</code>
 取消事件函数
 
 **Kind**: instance function  

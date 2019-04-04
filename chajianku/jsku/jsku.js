@@ -2,7 +2,7 @@
  * @Author: mikey.zhaopeng
  * @Date: 2019-04-01 20:42:51
  * @Last Modified by: mikey.sehui
- * @Last Modified time: 2019-04-04 18:00:13
+ * @Last Modified time: 2019-04-04 18:05:05
  */
 
 /** 
@@ -140,6 +140,7 @@ Function.prototype._method = function (name, fn) {
    * @param {String} - type
    * @param {Function} - fn
    * @param {Boolean} - m
+   * @return {this}
    */
   FunSpace._method("removeEvent", function (dom, type, fn, m) {
     //移除事件
