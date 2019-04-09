@@ -2,7 +2,7 @@
  * @Author: mikey.zhaopeng
  * @Date: 2019-04-01 20:42:51
  * @Last Modified by: mikey.sehui
- * @Last Modified time: 2019-04-04 18:05:05
+ * @Last Modified time: 2019-04-09 10:46:45
  */
 
 /** 
@@ -902,7 +902,7 @@ Function.prototype._method = function (name, fn) {
    * 格式化startTime距现在的已过时间
    * @instance 
    * @function name - formatPassTime
-   * @param  {Date} startTime 
+   * @param  {Date} - startTime 
    * @return {String}
    */
   FunSpace._method('formatPassTime', function (startTime) {
@@ -917,7 +917,79 @@ Function.prototype._method = function (name, fn) {
       formatTime = year ? year + "年前": month ? month + "个月前" : day ? day + "天前" : hour ? hour + "小时前" : min ? min + "分钟前" : '刚刚';
     return formatTime;
   })
+  /**
+   * 动态加载script标签
+   * @instance
+   * @function name - loadScript
+   * @param  {String} - url
+   * @param  {Function} - callback
+   * @return  {this}
+   */
+  FunSpace._method('loadScript', function (url, callback) {
+    var script = document.createElement ("script"),
+        readys = script.readyState;
+    script.type = "text/javascript";
+
+    if(readys){
+      script.onreadystatechange = function () {
+        if(readys === 'loaded' || readys === 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      }
+      this.loadScript = function () {
+        script.onreadystatechange = function () {
+          if(readys === 'loaded' || readys === 'complete') {
+            script.onreadystatechange = null;
+            callback();
+          }
+        }
+      }
+      
+    }else{
+      script.onload = function () {
+        callback();
+      }
+      this.loadScript = function () {
+        script.onload = function () {
+          callback();
+        }
+      }
+    }
+    script.src = url || null;
+    document.getElementsByTagName('body')[0].appendChild(script);
+    return this;
+  })
+  /**
+   * @instance
+   * @function name - xhrRequest
+   * @param  {String} - url
+   * @param  {String} - method
+   * @param  {Function} - cb
+   * @param  {String|Object} - data
+   * @param  {Boolean} - async
+   * @return  {this}
+   */
+  FunSpace._method('xhrRequest', function (url,method,cb,data,async) {
+    xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+    method = method.toUpperCase();
+    async  = async || true;
+    if(method === 'GET'){
+      xhr.open(method,url+'?cb='+cb+'&'+data,async);
+      xhr.send();
+    }else if(method === 'POST'){
+      xhr.open(method,url,async);
+      xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      xhr.send(data);
+    }
+    xhr.onreadystatechange = function () {
+      if(xhr.readyState === 4){
+        if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) cb(xhr.responseText);
+      }
+    }
+    return this;
+  })
   window._FunSpace = window.$FS = new FunSpace();
 })();
 
-module.exports = _FunSpace;
+// module.exports = _FunSpace;

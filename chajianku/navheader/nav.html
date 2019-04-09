@@ -85,28 +85,59 @@
         /* ie9兼容 圆点 */
         .icon {
             display: inline-block;
-            width: 100px;
-            height: 100px;
-            padding: 10px;
-            border: 10px solid #ccc;
+            width: 1rem;
+            height: 1rem;
+            padding: .1rem;
+            border: .1rem solid #ccc;
             border-radius: 50%;
             background-color: #ccc;
             background-clip: content-box;
-
+            animation: roa .7s, pad .8s, bgc 1.3s,h 1.5s;
+            animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            animation-iteration-count: infinite;
         }
-
+        @keyframes roa{to{transform:rotateZ(360deg);}}
+        @keyframes pad{to{padding: .08rem;}}
+        @keyframes h{to{height: 0;padding: 0;}}
+        @keyframes bgc{33%{border-color: rgb(42, 120, 223); background: greenyellow;background-clip: content-box;}66%{border-color: rgb(26, 217, 231); background: rgb(85, 238, 14);background-clip: content-box;}}
         /* 块级元素右对齐margin-left: auto; */
         .a {
             /* width: 1rem;
         height: 1rem;
         border: 1px solid #000; */
-            margin-left: auto;
+            /* margin-left: auto; */
+            position: absolute;
+            top: 8.5rem;
             width: 0;
             border-width: .2rem .2rem;
             border-style: solid;
             border-color: transparent #f30 #f30 transparent;
+            animation: three 1.5s alternate,mar 5s;
+            animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            animation-iteration-count: infinite;
         }
-
+        @keyframes three{
+            33%{
+                
+                border-color: transparent transparent #f30 #f30;
+            }
+            66%{
+                /* margin-left: auto; */
+                border-color: #f30 transparent transparent  #f30;
+            }
+            100%{
+                /* margin-right: auto; */
+                border-color: transparent #f30 transparent  #f30;
+            }
+        }
+        @keyframes mar{
+            10%{transform: translate(.1rem,.10rem) rotateY(-180deg);}
+            40%{transform: translate(3.5rem,4rem) rotateY(-360deg);}
+            80%{transform: translate(7rem,0rem) rotateY(180deg);}
+            100%{transform: translate(0rem,0rem) rotateY(360deg);}
+            }
+            
+            
         /* 不影响背景图片位置设置边距 border-right: 50px solid transparent */
     </style>
 </head>
@@ -194,6 +225,9 @@
             var cd = sc();
             cd.style.display = 'block';
         }
+
+        $FS.loadScript('../jsku/test.js',function (){console.log('i am load script')})
+        $FS.xhrRequest('http://sehui.com:8080','get',function (res){console.log(res)},"sehui",true)
     </script>
 </body>
 
