@@ -2,7 +2,7 @@
  * @Author: mikey.zhaopeng
  * @Date: 2019-04-01 20:42:51
  * @Last Modified by: mikey.sehui
- * @Last Modified time: 2019-04-09 10:46:45
+ * @Last Modified time: 2019-04-29 12:07:10
  */
 
 /** 
@@ -633,6 +633,17 @@ Function.prototype._method = function (name, fn) {
   }
 
   /**
+   * 转换类数组
+   * @instance 
+   * @function name - newArray
+   * @param {Object} - arr
+   * @return {Array}
+   */
+  FunSpace._method('newArray', function (arr) {
+    return Array.prototype.slice.call(arr);
+  })
+
+  /**
    * 
    * 判断元素是否有某个class
    * @instance 
@@ -669,8 +680,8 @@ Function.prototype._method = function (name, fn) {
    */
   FunSpace._method('removeClass', function (ele, cls) {
     if (this.hasClass(ele, cls)) {
-      var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-      ele.className = ele.className.replace(reg, ' ');
+      var reg = new RegExp(cls);
+      ele.className = ele.className.replace(reg, '');
     }
     return this;
   })
@@ -769,7 +780,7 @@ Function.prototype._method = function (name, fn) {
    * @return {Number} 
    */
   FunSpace._method('getScrollTop', function () {
-    return window.scrollY;
+    return window.scrollY || document.documentElement.scrollTop;
   })
   /**
    * 获取滚动条距离左边距离
@@ -778,7 +789,7 @@ Function.prototype._method = function (name, fn) {
    * @return {Number} 
    */
   FunSpace._method('getScrollLeft', function () {
-    return window.scrollX;
+    return window.scrollX || document.documentElement.scrollLeft;
   })
   /**
    * 滚动到指定位置

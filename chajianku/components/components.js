@@ -1,8 +1,9 @@
+
 /*
  * @Author: mikey.sehui 
  * @Date: 2019-04-01 11:55:43 
  * @Last Modified by: mikey.sehui
- * @Last Modified time: 2019-04-02 17:51:16
+ * @Last Modified time: 2019-04-15 10:16:41
  * 移动端腾讯手游导航栏
  * 必须有这些样式初始化
  * body {
@@ -15,7 +16,17 @@
             list-style: none;
         }
  */
-
+if(!(Function.prototype._method)){
+    console.log('yes')
+    Function.prototype._method = function (name, fn) {
+        if (!name || typeof name !== 'string') throw new Error(name + ' must be a string');
+        if (!fn || typeof fn !== 'function') throw new Error(fn + ' must be a function');
+        if (!this.prototype[name]) {
+          this.prototype[name] = fn;
+        }
+        return this;
+      };
+}
 ; (function ($) {
     function Init(options) {
         this.parent          = options.parent;
@@ -26,21 +37,23 @@
         this.headerLogoLink  = options.headerLogoLink;//Array 链接地址 第一个是logo的链接地址，第二个是按钮的链接地址
         this.headerAppointBg = options.headerAppointBg;//按钮背景图
         this.headerMenu      = options.headerMenu;// 是否需要菜单按钮
+        this.headerLogoPTT   = options.headerLogoPTT;
+        this.headerAppointPTT = options.headerAppointPTT;
         this.createDom();
         this.addCss();
         this.headerMenu && this.bindEvent();
         
     };
-    Init.prototype.createDom = function () {
+    Init._method('createDom', function () {
         var logoDiv = $('<div class="header-logo"></div>'),
             btnDiv  = $('<div class="header-btns"></div>'),
             logoH1  = $('<h1></h1>'),
-            logoH1A = $(`<a href="${this.headerLogoLink[0]}" ontouchend="PTTSendClick('header','logo','logo');"></a>`),
+            logoH1A = $(`<a href="${this.headerLogoLink[0]}" ontouchend="PTTSendClick(${this.headerLogoPTT},'logo','logo');"></a>`),
             logoH1AImg = $(`<img src="${this.headerLogo}" alt="${this.headerLogoAlt}">`),
             logoDesc   = $('<div class="header-desc"></div>'),
             logoDescH2 = $(`<h2>${this.headerDesc?this.headerDesc:''}</h2>`),
             logoDescP  = $(`<p>${this.headerDescText?this.headerDescText:''}</p>`),
-            btnA       = $(`<a href="${this.headerLogoLink[1]}" class="header-appoint"ontouchend="PTTSendClick('header','appoint','立即预约');">立即预约</a>`),
+            btnA       = $(`<a href="${this.headerLogoLink[1]}" class="header-appoint"ontouchend="PTTSendClick(${this.headerAppointPTT},'appoint','立即预约');">立即预约</a>`),
             btnUl      = $(`<ul></ul>`);
             for(var i = 0; i < 3; i++){
                 var btnUlLi = $(`<li>——</li>`);
@@ -56,8 +69,9 @@
             logoDesc.appendTo(logoDiv);
             logoDiv.appendTo(this.parent);
             btnDiv.appendTo(this.parent);
-    }
-    Init.prototype.addCss = function () {
+    }),
+
+    Init._method('addCss', function () {
         $(this.parent).css({
             width: `100vw`,
             height: `1.2rem`,
@@ -133,8 +147,8 @@
         $('.header-btns ul li:not(:first-child)', this.parent).css({
             marginTop: `.15rem`
         })
-    }
-    Init.prototype.addTransform = function () {
+    }),
+    Init._method('addTransform', function () {
         $('.header-btns ul.open li:nth-child(1)', this.parent).css({
             transformOrigin: `left center`,
             transform: `rotateZ(45deg)`
@@ -146,8 +160,8 @@
         $('.header-btns ul.open li:nth-child(2)', this.parent).css({
             opacity:0
         })
-    }
-    Init.prototype.removeTransform = function () {
+    })
+    Init._method('removeTransform', function () {
         $('.header-btns ul li:nth-child(1)', this.parent).css({
             transformOrigin: `left center`,
             transform: `rotateZ(0deg)`
@@ -159,8 +173,8 @@
         $('.header-btns ul li:nth-child(2)', this.parent).css({
             opacity:1
         })
-    }
-    Init.prototype.bindEvent = function () {
+    })
+    Init._method('bindEvent', function () {
         var self = this;
         $('.header-btns ul').on('click',function () {
             $(this).toggleClass('open');
@@ -170,11 +184,76 @@
                 self.removeTransform();
             }
         })
-    }
+    })
     $.fn.extend({
         navHeader: function (options) {
             options.parent = this;
             var navHeader = new Init(options);
+        }
+    });
+})(jQuery)
+
+; (function ($) {
+    function Init(options) {
+        this.parent          = options.parent;
+        this.headerDesc      = options.headerDesc;//主题文字
+        this.headerLogo      = options.headerLogo;//logo图片src
+        this.headerLogoAlt     = options.headerLogoAlt;//logo图片alt
+        this.headerDescText  = options.headerDescText;//主题文字副标题
+        this.headerLogoLink  = options.headerLogoLink;//Array 链接地址 第一个是logo的链接地址，第二个是按钮的链接地址
+        this.headerAppointBg = options.headerAppointBg;//按钮背景图
+        this.headerMenu      = options.headerMenu;// 是否需要菜单按钮
+        this.headerLogoPTT   = options.headerLogoPTT;
+        this.headerAppointPTT = options.headerAppointPTT;
+        this.createDom();
+        this.addCss();
+        this.headerMenu && this.bindEvent();
+        
+    };
+    Init._method('createDom', function () {
+        var logoDiv = $('<div class="header-logo"></div>'),
+            btnDiv  = $('<div class="header-btns"></div>'),
+            logoH1  = $('<h1></h1>'),
+            logoH1A = $(`<a href="${this.headerLogoLink[0]}" ontouchend="PTTSendClick(${this.headerLogoPTT},'logo','logo');"></a>`),
+            logoH1AImg = $(`<img src="${this.headerLogo}" alt="${this.headerLogoAlt}">`),
+            logoDesc   = $('<div class="header-desc"></div>'),
+            logoDescH2 = $(`<h2>${this.headerDesc?this.headerDesc:''}</h2>`),
+            logoDescP  = $(`<p>${this.headerDescText?this.headerDescText:''}</p>`),
+            btnA       = $(`<a href="${this.headerLogoLink[1]}" class="header-appoint"ontouchend="PTTSendClick(${this.headerAppointPTT},'appoint','立即预约');">立即预约</a>`),
+            btnUl      = $(`<ul></ul>`);
+            for(var i = 0; i < 3; i++){
+                var btnUlLi = $(`<li>——</li>`);
+                btnUlLi.appendTo(btnUl);
+            }
+            btnA.appendTo(btnDiv);
+            this.headerMenu && btnUl.appendTo(btnDiv);
+            logoH1AImg.appendTo(logoH1A);
+            logoH1A.appendTo(logoH1);
+            logoH1.appendTo(logoDiv);
+            logoDescH2.appendTo(logoDesc);
+            this.headerDescText && logoDescP.appendTo(logoDesc);
+            logoDesc.appendTo(logoDiv);
+            logoDiv.appendTo(this.parent);
+            btnDiv.appendTo(this.parent);
+    }),
+
+    Init._method('addCss', function () {
+        
+    }),
+    Init._method('addTransform', function () {
+        
+    })
+    Init._method('removeTransform', function () {
+       
+    })
+    Init._method('bindEvent', function () {
+        var self = this;
+        
+    })
+    $.fn.extend({
+        diaDown: function (options) {
+            options.parent = this;
+            var diaDown = new Init(options);
         }
     });
 })(jQuery)

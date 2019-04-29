@@ -279,6 +279,17 @@
 | <code>Array</code> | arr |
 | <code>Array</code> | other |
 
+<a name="name - newArray"></a>
+
+## .name - newArray() ⇒ <code>Array</code>
+转换类数组
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>Object</code> | arr |
+
 <a name="name - hasClass"></a>
 
 ## .name - hasClass() ⇒ <code>Boolean</code>
@@ -460,12 +471,37 @@ requestAnimationFrame函数 返回一个函数 传回调
 **Kind**: instance function  
 <a name="name - formatPassTime"></a>
 
-## .name - formatPassTime(startTime) ⇒ <code>String</code>
+## .name - formatPassTime() ⇒ <code>String</code>
 格式化startTime距现在的已过时间
 
 **Kind**: instance function  
 
-| Param | Type |
+| Type | Description |
 | --- | --- |
-| startTime | <code>Date</code> | 
+| <code>Date</code> | startTime |
+
+<a name="name - loadScript"></a>
+
+## .name - loadScript() ⇒ <code>this</code>
+动态加载script标签
+
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | url |
+| <code>function</code> | callback |
+
+<a name="name - xhrRequest"></a>
+
+## .name - xhrRequest() ⇒ <code>this</code>
+**Kind**: instance function  
+
+| Type | Description |
+| --- | --- |
+| <code>String</code> | url |
+| <code>String</code> | method |
+| <code>function</code> | cb |
+| <code>String</code> \| <code>Object</code> | data |
+| <code>Boolean</code> | async |
 
