@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-
-<head>
+<<<<<<< HEAD <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -88,54 +86,87 @@
       height: 300px;
       transition: all 2s;
     }
+
+    @font-face {
+      font-family: FangZhengqingKe;
+      src: url('./方正清刻本悦宋简体.TTf');
+    }
+
+    .fzqk {
+      font-family: FangZhengqingKe;
+      font-weight: 500;
+    }
   </style>
-</head>
+  </head>
 
-<body>
-  <div id="i">
-    <img class="s" src="./img/person-3.png" alt="">
-  </div>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">1</div>
-      <div class="swiper-slide">2</div>
-      <div class="swiper-slide">3</div>
+  <body>
+    <div id="i">
+      <img class="s" src="./img/person-3.png" alt="">
     </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-  <script src="jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
-  <script>
-    var mySwiper = new Swiper('.swiper-container', {
-      //   direction: 'vertical',
-      loop: true,
-      autoplay: 5000,
-      loopedSlides: 0,
-      loopAdditionalSlides: 0,
-      effect: 'coverflow',
-      slidesPerView: 2,
-      centeredSlides: true,
-      coverflow: {
-        rotate: 0,
-        stretch: 40,
-        depth: 90,
-        modifier: 1,
-        slideShadows: true
-      },
-      // 如果需要分页器
-      pagination: '.swiper-pagination',
+    <p>郑楚辉</p>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">1</div>
+        <div class="swiper-slide">2</div>
+        <div class="swiper-slide">3</div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+    <script>
+      var mySwiper = new Swiper('.swiper-container', {
+        //   direction: 'vertical',
+        loop: true,
+        autoplay: 5000,
+        loopedSlides: 0,
+        loopAdditionalSlides: 0,
+        effect: 'coverflow',
+        slidesPerView: 2,
+        centeredSlides: true,
+        coverflow: {
+          rotate: 0,
+          stretch: 40,
+          depth: 90,
+          modifier: 1,
+          slideShadows: true
+        },
+        // 如果需要分页器
+        pagination: '.swiper-pagination',
 
-      // 如果需要前进后退按钮
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
+        // 如果需要前进后退按钮
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
 
-    })
-    let img = $('.s')
-    let d = $('#i')
-    window.onscroll = e => {
-      if (window.scrollY <= 300) {
+      })
+      let img = $('.s')
+      let d = $('#i')
+      window.onscroll = e => {
+        if (window.scrollY <= 300) {
+          img.css({
+            opacity: 1,
+            width: 400 + 'px',
+            height: `600px`,
+            transform: `rotate(360deg)`
+          })
+          d.css({
+            transform: `translate(900px, 200px)`
+          })
+        } else if (window.scrollY > 300) {
+          img.css({
+            opacity: 0,
+            width: 0,
+            height: 0,
+            transform: `rotate(-360deg)`,
+          })
+          d.css({
+            transform: `translate(-900px, -200px)`
+          })
+        }
+      }
+      $('.swiper-wrapper').hover(e => {
         img.css({
           opacity: 1,
           width: 400 + 'px',
@@ -145,7 +176,7 @@
         d.css({
           transform: `translate(900px, 200px)`
         })
-      } else if (window.scrollY > 300) {
+      }, e => {
         img.css({
           opacity: 0,
           width: 0,
@@ -155,31 +186,8 @@
         d.css({
           transform: `translate(-900px, -200px)`
         })
-      }
-    }
-    $('.swiper-wrapper').hover(e => {
-      img.css({
-        opacity: 1,
-        width: 400 + 'px',
-        height: `600px`,
-        transform: `rotate(360deg)`
       })
-      d.css({
-        transform: `translate(900px, 200px)`
-      })
-    }, e => {
-      img.css({
-        opacity: 0,
-        width: 0,
-        height: 0,
-        transform: `rotate(-360deg)`,
-      })
-      d.css({
-        transform: `translate(-900px, -200px)`
-      })
-    })
-  </script>
-</body>
+    </script>
+  </body>
 
 </html>
-
