@@ -1,0 +1,19 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "jsdom": "^15.1.0",
+    "mine-jsku-es5": "^1.0.0",
+    "mockjs": "^1.0.1-beta3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildData": "node index.js > log-data.json"
+  },
+  "author": "",
+  "license": "ISC"
+}
