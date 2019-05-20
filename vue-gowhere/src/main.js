@@ -3,15 +3,23 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import 'css/reset.css'
+import store from './store'
+import 'css/resetPhone.css'
+import 'css/resetPhoneTag.css'
 import 'css/border.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import fastClick from 'fastclick'
+Vue.use(ElementUI)
 Vue.config.productionTip = false
+// eslint-disable-next-line no-unused-vars
+Vue.prototype.$EventBus = new Vue()
 fastClick.attach(document.body)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

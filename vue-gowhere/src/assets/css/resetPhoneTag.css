@@ -1,0 +1,112 @@
+/*
+ * @Author: mikey.sehui 
+ * @Date: 2019-03-26 17:04:45 
+ * @Last Modified by: mikey.sehui
+ * @Last Modified time: 2019-03-28 18:15:44
+ */
+
+.fc-white{
+    color: #fff;
+}
+.fs-14{
+    font-size: .14rem;
+}
+.fs-18{
+    font-size: .18rem;
+}
+.fs-32{
+    font-size: .32rem;
+}
+.fs-24{
+    font-size: .24rem;
+}
+.fs-47{
+    font-size: .47rem;
+}
+.fs-40{
+    font-size: .40rem;
+}
+.fs-16{
+    font-size: .16rem;
+}
+.fs-21{
+    font-size: .21rem;
+}
+.fs-22{
+    font-size: .22rem;
+}
+.fs-27{
+    font-size: .27rem;
+}
+.fc-efd275{
+    color: #efd275;
+}
+.fc{
+    color: rgba(255, 255, 255, .5)
+}
+.fc-time{
+    color: #afcada;
+}
+.fc-blue{
+    color: #0e48a5;
+}
+.fc-skyblue{
+    color: #0175bd;
+}
+.fc-lightblue{
+    color: #2e83d0;
+}
+.flex-box{
+    display: flex;
+}
+.flex-box-ct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-direction-col{
+    display: flex;
+    flex-direction: column;
+}
+.flex-space-around{
+    display: flex;
+    justify-content: space-around;
+}
+.flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}
+.flex-align-items{
+    align-items: center;
+}
+.flex-justify-content{
+    justify-content: center;
+}
+.box-border{
+    box-sizing: border-box;
+}
+.img-hidden-text{
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.bignum{
+    color: #fbe57e;
+    vertical-align: sub;
+}
+.f-ligher{
+    font-weight: lighter;
+    font-family: NUM;
+}
+.inline-center{
+    text-align: center;
+}
+.c-pointer{
+    cursor: pointer;
+}
+.tid {
+    text-indent: -9999rem;
+}
+.db {
+    display: block;
+}
