@@ -2,7 +2,7 @@
  * @Author: mikey.zhaopeng
  * @Date: 2019-04-01 20:42:51
  * @Last Modified by: mikey.sehui
- * @Last Modified time: 2019-04-29 12:07:10
+ * @Last Modified time: 2019-05-27 18:23:58
  */
 
 /** 
@@ -486,6 +486,7 @@ Function.prototype._method = function (name, fn) {
   }
   /**
    * 快速排序
+   * Runtime: O(n)
    * @function name - quickSort 
    * @instance 
    * @param {Array} - arr
@@ -517,17 +518,100 @@ Function.prototype._method = function (name, fn) {
    */
   FunSpace._method('bubbleSort', function (arr) {
     if (!Array.isArray(arr)) throw new Error(arr + ' must be a Array');
-    var len = arr.length, temp;
+    var len = arr.length;
     for (var i = len; i >= 2; i--) {
+      let swapped = false;
       for (var j = 0; j < len; j++) {
         if (arr[j] > arr[j + 1]) {
-          temp = arr[j];
-          arr[j] = arr[j + 1];
-          arr[j + 1] = temp;
+          FunSpace.swap(arr, j, j + 1)
+          swapped = true;
         }
+      }
+      if (!swapped) break;
+    }
+    return arr;
+  })
+  /**
+   * 插入排序
+   * Runtime: O(n^2)
+   * @function name - insertionSort 
+   * @instance 
+   * @param {Array} - arr
+   * @return {Array}
+   */
+  FunSpace._method('insertionSort', function (arr) {
+    if (!Array.isArray(arr)) throw new Error(arr + ' must be a Array');
+    for (var right = 1; right < arr.length; right++) {//从第2位遍历到最后
+      for (var left = right; arr[left] < arr[left - 1]; left--) {//比较当前位是否小于前一位
+        FunSpace.swap(arr, left - 1, left)
       }
     }
     return arr;
+  })
+  /**
+   * 选择排序
+   * Runtime: O(n^2)
+   * @function name - selectionSort 
+   * @instance 
+   * @param {Array} - arr
+   * @return {Array}
+   */
+  FunSpace._method('selectionSort', function (arr) {
+    if (!Array.isArray(arr)) throw new Error(arr + ' must be a Array');
+    for (var left = 0; left < arr.length; left++) {//从第1位遍历到最后
+      var selection = left;//从第一位开始作为最小的
+      for (var right = left + 1; right < arr.length; right++) {//从第2位遍历到最后
+        if (arr[selection] > arr[right]) {//判断selection 是否比下一位大
+          selection = right;
+        }
+      }
+      if (selection !== left) {//如果不相等则替换值
+        FunSpace.swap(arr, selection, left)
+      }
+    }
+    return arr;
+  })
+  /**
+   * 判断是否为空
+   * 
+   * @function name - isEmpty 
+   * @instance 
+   * @example
+   *  isEmpty() // => true
+   *  isEmpty([]) // => true
+   *  isEmpty({}) // => true
+   *  isEmpty('') // => true
+   *  isEmpty([8, 9, 6]) // => false
+   *  isEmpty('text') // => false
+   *  isEmpty({a: 1}) // => false
+   * @param {Array|Object|String} - data
+   * @return {Boolean}
+   */
+  FunSpace._method('isEmpty', function (data) {
+    return !data || data.length || !Object.keys(data).length;
+  })
+  /**
+   * 数组是否有重复性
+   * Runtime: O(n)
+   * @function name - isEmpty 
+   * @instance 
+   * @example
+   *  hasDuplicates([]); //↪️ false
+   *  hasDuplicates([1, 1]); //↪️ true
+   *  hasDuplicates([1, 2]);//↪️ false
+   * @param {Array} - data
+   * @return {Boolean}
+   */
+  FunSpace._method('hasDuplicates', function (arr) {
+    const words = new Map();
+    for (let index = 0; index < arr.length; index++) {
+      const word = arr[index];
+      if (words.has(word)) {
+        return true;
+      }
+      words.set(word, true);
+    }
+    return false;
   })
   /**
    *
@@ -762,10 +846,10 @@ Function.prototype._method = function (name, fn) {
    * @return {String} 
    */
   FunSpace._method('getOS', function () {
-    var userAgent  = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '',
-        vendor     = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '',
-        appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '',
-        OS;
+    var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '',
+      vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '',
+      appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '',
+      OS;
     if (/mac/i.test(appVersion)) return 'MacOSX'
     if (/win/i.test(appVersion)) return 'windows'
     if (/linux/i.test(appVersion)) return 'linux'
@@ -800,7 +884,7 @@ Function.prototype._method = function (name, fn) {
    * @return {this} 
    */
   FunSpace._method('scrollTo', function (x, y) {
-    if(this._typeof(x) !== 'number' || this._typeof(y) !== 'number') throw new Error(x+' '+ y +' must be a number');
+    if (this._typeof(x) !== 'number' || this._typeof(y) !== 'number') throw new Error(x + ' ' + y + ' must be a number');
     window.scrollTo(x, y);
     return this;
   })
@@ -872,17 +956,17 @@ Function.prototype._method = function (name, fn) {
    * @return {String}
    */
   FunSpace._method('digitUppercase', function (n) {
-    if(this._typeof(n) !== 'number') throw new Error(n+' must be a number');
+    if (this._typeof(n) !== 'number') throw new Error(n + ' must be a number');
     var fraction = ['角', '分'],
-        digit    = [
-                    '零', '壹', '贰', '叁', '肆',
-                    '伍', '陆', '柒', '捌', '玖'
-                   ],
-        unit     = [
-                    ['元', '万', '亿'],
-                    ['', '拾', '佰', '仟']
-                   ],
-        s        = '';
+      digit = [
+        '零', '壹', '贰', '叁', '肆',
+        '伍', '陆', '柒', '捌', '玖'
+      ],
+      unit = [
+        ['元', '万', '亿'],
+        ['', '拾', '佰', '仟']
+      ],
+      s = '';
     for (var i = 0; i < fraction.length; i++) {
       s += (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
     }
@@ -925,7 +1009,7 @@ Function.prototype._method = function (name, fn) {
       min = parseInt(time / (1000 * 60)),
       month = parseInt(day / 30),
       year = parseInt(month / 12);
-      formatTime = year ? year + "年前": month ? month + "个月前" : day ? day + "天前" : hour ? hour + "小时前" : min ? min + "分钟前" : '刚刚';
+    formatTime = year ? year + "年前" : month ? month + "个月前" : day ? day + "天前" : hour ? hour + "小时前" : min ? min + "分钟前" : '刚刚';
     return formatTime;
   })
   /**
@@ -937,27 +1021,27 @@ Function.prototype._method = function (name, fn) {
    * @return  {this}
    */
   FunSpace._method('loadScript', function (url, callback) {
-    var script = document.createElement ("script"),
-        readys = script.readyState;
+    var script = document.createElement("script"),
+      readys = script.readyState;
     script.type = "text/javascript";
 
-    if(readys){
+    if (readys) {
       script.onreadystatechange = function () {
-        if(readys === 'loaded' || readys === 'complete') {
+        if (readys === 'loaded' || readys === 'complete') {
           script.onreadystatechange = null;
           callback();
         }
       }
       this.loadScript = function () {
         script.onreadystatechange = function () {
-          if(readys === 'loaded' || readys === 'complete') {
+          if (readys === 'loaded' || readys === 'complete') {
             script.onreadystatechange = null;
             callback();
           }
         }
       }
-      
-    }else{
+
+    } else {
       script.onload = function () {
         callback();
       }
@@ -981,25 +1065,47 @@ Function.prototype._method = function (name, fn) {
    * @param  {Boolean} - async
    * @return  {this}
    */
-  FunSpace._method('xhrRequest', function (url,method,cb,data,async) {
+  FunSpace._method('xhrRequest', function (url, method, cb, data, async) {
     xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
     method = method.toUpperCase();
-    async  = async || true;
-    if(method === 'GET'){
-      xhr.open(method,url+'?cb='+cb+'&'+data,async);
+    async = async || true;
+    if (method === 'GET') {
+      xhr.open(method, url + '?cb=' + cb + '&' + data, async);
       xhr.send();
-    }else if(method === 'POST'){
-      xhr.open(method,url,async);
-      xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    } else if (method === 'POST') {
+      xhr.open(method, url, async);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.send(data);
     }
     xhr.onreadystatechange = function () {
-      if(xhr.readyState === 4){
-        if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) cb(xhr.responseText);
+      if (xhr.readyState === 4) {
+        if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) cb(xhr.responseText);
       }
     }
     return this;
   })
+  /**
+   * 反转单词字符串
+   * @instance
+   * @function name - reverseWord
+   * @param  {String} str
+   */
+  FunSpace._method('reverseWord', function (str) {
+    return str.split(' ').map(function (item) {
+      return item.split('').reverse().join('')
+    }).join(' ')
+
+  })
+  /**
+   * Swap array elements in place
+   * Runtime: O(1)
+   * @param  {array} arr
+   * @param  {integer} from index of the first element
+   * @param  {integer} to index of the 2nd element
+   */
+  FunSpace.swap = function (arr, from, to) {
+    [arr[from], arr[to]] = [arr[to], arr[from]]
+  }
   window._FunSpace = window.$FS = new FunSpace();
 })();
 

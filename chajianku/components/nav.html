@@ -153,11 +153,21 @@
         $('.header').navHeader({
             headerDesc: '三生三世十里桃花',
             headerDescText: '我爱你哦',
-            headerAppointBg: '//game.gtimg.cn/images/3s/m/m201811/icon.png',
+            headerAppointBg: '//game.gtimg.cn/images/3s/cp/a20190418xzm/link-web.png',
             headerLogoAlt: '三生三世十里桃花手游',
             headerLogo: 'https://game.gtimg.cn/images/3s/m/m201811/logo.png',
             headerLogoLink: ['https://3s.qq.com/m/main.shtml', 'https://3s.qq.com/'],
-            headerMenu: true
+            headerMenu: true,
+            headerAppointPTT:{
+                btn:'btn',
+                eng: 'appoint',
+                ch: '立即预约'
+            },
+            headerLogoPTT:{
+                btn: 'link',
+                eng: 'logo',
+                ch: 'logo'
+            }
         });
         function c() {
             $('.s').toggleClass('opens')
@@ -216,7 +226,11 @@
         }
 
         $FS.loadScript('../jsku/test.js',function (){console.log('i am load script')})
-        $FS.xhrRequest('http://sehui.com:8080','get',function (res){console.log(res)},"sehui",true)
+        $FS.xhrRequest('http://192.168.1.53:81','get',function (res){console.log(res)},"sehui",true)
+        $FS.reverseWord('I\'m kobe brant')
+        $FS.reverseString('I\'m kobe brant')
+		console.log("TCL: $FS.reverseString('I\'m kobe brant')", $FS.reverseString('I\'m kobe brant'))
+		console.log("TCL: $FS.reverseWord('I\'m kobe brant')", $FS.reverseWord('I\'m kobe brant'))
     </script>
 </body>
 

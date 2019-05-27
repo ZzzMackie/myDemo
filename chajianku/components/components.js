@@ -3,7 +3,7 @@
  * @Author: mikey.sehui 
  * @Date: 2019-04-01 11:55:43 
  * @Last Modified by: mikey.sehui
- * @Last Modified time: 2019-04-15 10:16:41
+ * @Last Modified time: 2019-05-20 14:15:43
  * 移动端腾讯手游导航栏
  * 必须有这些样式初始化
  * body {
@@ -29,43 +29,43 @@ if(!(Function.prototype._method)){
 }
 ; (function ($) {
     function Init(options) {
-        this.parent          = options.parent;
-        this.headerDesc      = options.headerDesc;//主题文字
-        this.headerLogo      = options.headerLogo;//logo图片src
-        this.headerLogoAlt     = options.headerLogoAlt;//logo图片alt
-        this.headerDescText  = options.headerDescText;//主题文字副标题
-        this.headerLogoLink  = options.headerLogoLink;//Array 链接地址 第一个是logo的链接地址，第二个是按钮的链接地址
-        this.headerAppointBg = options.headerAppointBg;//按钮背景图
-        this.headerMenu      = options.headerMenu;// 是否需要菜单按钮
-        this.headerLogoPTT   = options.headerLogoPTT;
-        this.headerAppointPTT = options.headerAppointPTT;
+        this.parent           = options.parent;
+        this.headerDesc       = options.headerDesc;//主题文字
+        this.headerLogo       = options.headerLogo;//logo图片src
+        this.headerLogoAlt    = options.headerLogoAlt;//logo图片alt
+        this.headerDescText   = options.headerDescText;//主题文字副标题
+        this.headerLogoLink   = options.headerLogoLink;//Array 链接地址 第一个是logo的链接地址，第二个是按钮的链接地址
+        this.headerAppointBg  = options.headerAppointBg;//按钮背景图
+        this.headerMenu       = options.headerMenu;// 是否需要菜单按钮
+        this.headerLogoPTT    = options.headerLogoPTT;//logo点击流
+        this.headerAppointPTT = options.headerAppointPTT;//按钮点击流
         this.createDom();
         this.addCss();
         this.headerMenu && this.bindEvent();
         
     };
-    Init._method('createDom', function () {
+    Init._method('createDom', function () {//创建dom结构
         var logoDiv = $('<div class="header-logo"></div>'),
             btnDiv  = $('<div class="header-btns"></div>'),
             logoH1  = $('<h1></h1>'),
-            logoH1A = $(`<a href="${this.headerLogoLink[0]}" ontouchend="PTTSendClick(${this.headerLogoPTT},'logo','logo');"></a>`),
+            logoH1A = $(`<a href="${this.headerLogoLink[0]}" ontouchend="PTTSendClick(\'${this.headerLogoPTT.btn}\', '${this.headerLogoPTT.eng}', '${this.headerLogoPTT.ch}');"></a>`),
             logoH1AImg = $(`<img src="${this.headerLogo}" alt="${this.headerLogoAlt}">`),
             logoDesc   = $('<div class="header-desc"></div>'),
             logoDescH2 = $(`<h2>${this.headerDesc?this.headerDesc:''}</h2>`),
             logoDescP  = $(`<p>${this.headerDescText?this.headerDescText:''}</p>`),
-            btnA       = $(`<a href="${this.headerLogoLink[1]}" class="header-appoint"ontouchend="PTTSendClick(${this.headerAppointPTT},'appoint','立即预约');">立即预约</a>`),
+            btnA       = $(`<a href="${this.headerLogoLink[1]}" class="header-appoint"ontouchend="PTTSendClick('${this.headerAppointPTT.btn}', '${this.headerAppointPTT.eng}', '${this.headerAppointPTT.ch}');">${this.headerAppointPTT.ch}</a>`),
             btnUl      = $(`<ul></ul>`);
             for(var i = 0; i < 3; i++){
                 var btnUlLi = $(`<li>——</li>`);
                 btnUlLi.appendTo(btnUl);
             }
             btnA.appendTo(btnDiv);
-            this.headerMenu && btnUl.appendTo(btnDiv);
+            this.headerMenu && btnUl.appendTo(btnDiv);//有无菜单按钮
             logoH1AImg.appendTo(logoH1A);
             logoH1A.appendTo(logoH1);
             logoH1.appendTo(logoDiv);
             logoDescH2.appendTo(logoDesc);
-            this.headerDescText && logoDescP.appendTo(logoDesc);
+            this.headerDescText && logoDescP.appendTo(logoDesc);//有无副标题
             logoDesc.appendTo(logoDiv);
             logoDiv.appendTo(this.parent);
             btnDiv.appendTo(this.parent);
@@ -127,7 +127,7 @@ if(!(Function.prototype._method)){
             height: 0,
             overflow: `hidden`,
             textAlign: `center`,
-            background: `url(${this.headerAppointBg}) no-repeat -2.6rem -4.4rem/9rem 10rem`
+            background: `url(${this.headerAppointBg}) no-repeat 0 0/100% 100%`
         })
         $('.header-btns ul', this.parent).css({
             width: `.53rem`,
@@ -148,7 +148,7 @@ if(!(Function.prototype._method)){
             marginTop: `.15rem`
         })
     }),
-    Init._method('addTransform', function () {
+    Init._method('addTransform', function () {//添加变形
         $('.header-btns ul.open li:nth-child(1)', this.parent).css({
             transformOrigin: `left center`,
             transform: `rotateZ(45deg)`
@@ -161,7 +161,7 @@ if(!(Function.prototype._method)){
             opacity:0
         })
     })
-    Init._method('removeTransform', function () {
+    Init._method('removeTransform', function () {//移除变形
         $('.header-btns ul li:nth-child(1)', this.parent).css({
             transformOrigin: `left center`,
             transform: `rotateZ(0deg)`
@@ -174,7 +174,7 @@ if(!(Function.prototype._method)){
             opacity:1
         })
     })
-    Init._method('bindEvent', function () {
+    Init._method('bindEvent', function () {//菜单点击事件
         var self = this;
         $('.header-btns ul').on('click',function () {
             $(this).toggleClass('open');
@@ -198,13 +198,13 @@ if(!(Function.prototype._method)){
         this.parent          = options.parent;
         this.headerDesc      = options.headerDesc;//主题文字
         this.headerLogo      = options.headerLogo;//logo图片src
-        this.headerLogoAlt     = options.headerLogoAlt;//logo图片alt
+        this.headerLogoAlt   = options.headerLogoAlt;//logo图片alt
         this.headerDescText  = options.headerDescText;//主题文字副标题
         this.headerLogoLink  = options.headerLogoLink;//Array 链接地址 第一个是logo的链接地址，第二个是按钮的链接地址
         this.headerAppointBg = options.headerAppointBg;//按钮背景图
         this.headerMenu      = options.headerMenu;// 是否需要菜单按钮
-        this.headerLogoPTT   = options.headerLogoPTT;
-        this.headerAppointPTT = options.headerAppointPTT;
+        this.headerLogoPTT   = options.headerLogoPTT || 'btn';
+        this.headerAppointPTT = options.headerAppointPTT || 'btn';
         this.createDom();
         this.addCss();
         this.headerMenu && this.bindEvent();
