@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="GBK">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="robots" content="all">
+    <meta name="author" content="Tencent-CP">
+    <meta name="Copyright" content="Tencent">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta itemprop="name" content="" />
+    <meta itemprop="description" content="" />
+    <meta itemprop="image" content="" />
+    <title>Document</title>
+    <link rel="stylesheet" href="sw.css">
+</head>
+
+<body>
+    <section class="cr-container">
+
+    </section>
+    <!--[if lt IE 9]><p class="browser-tips">您的浏览器版本过低，请升级浏览器获得更好的体验<p><![endif]-->
+    <script src="//ossweb-img.qq.com/images/js/jquery/jquery-1.11.3.min.js"></script>
+    <script src="./css3swiper.js"></script>
+    <script>
+        
+        const newsw = new Sw({
+            parent: '.cr-container',
+            width: 600,
+            height: 400,
+            img: ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg'],
+            tit: ['Serendipity', 'Adventure', 'Nature', 'Serenity'],
+            desc: ['What you\'ve been dreaming of', 'Where the fun begins', 'Unforgettable eperiences', 'When silence touches nature']
+        })
+    </script>
+</body>
+
+</html>

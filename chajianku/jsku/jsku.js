@@ -1,3 +1,27 @@
+/***
+ *      ┌─┐       ┌─┐
+ *   ┌──┘ ┴───────┘ ┴──┐
+ *   │                 │
+ *   │       ───       │
+ *   │  ─┬┘       └┬─  │
+ *   │                 │
+ *   │       ─┴─       │
+ *   │                 │
+ *   └───┐         ┌───┘
+ *       │         │
+ *       │         │
+ *       │         │
+ *       │         └──────────────┐
+ *       │                        │
+ *       │                        ├─┐
+ *       │                        ┌─┘
+ *       │                        │
+ *       └─┐  ┐  ┌───────┬──┐  ┌──┘
+ *         │ ─┤ ─┤       │ ─┤ ─┤
+ *         └──┴──┘       └──┴──┘
+ *                神兽保佑
+ *               代码无BUG!
+ */
 /** 
  * @Author: mikey.zhaopeng
  * @Date: 2019-04-01 20:42:51
@@ -452,7 +476,7 @@ Function.prototype._method = function (name, fn) {
   /**
    * 递归归并排序
    * @instance @function name - mergeSort
-   * 
+   * Runtime: O(nlogn) 稳定
    * @param {Array}
    * @return {Array}
    */
@@ -486,7 +510,7 @@ Function.prototype._method = function (name, fn) {
   }
   /**
    * 快速排序
-   * Runtime: O(n)
+   * Runtime: O(n) 不稳定
    * @function name - quickSort 
    * @instance 
    * @param {Array} - arr
@@ -512,6 +536,7 @@ Function.prototype._method = function (name, fn) {
   /**
    * 冒泡排序
    * @function name - bubbleSort 
+   * Runtime: O(n^2) 不稳定
    * @instance 
    * @param {Array} - arr
    * @return {Array}
@@ -533,7 +558,7 @@ Function.prototype._method = function (name, fn) {
   })
   /**
    * 插入排序
-   * Runtime: O(n^2)
+   * Runtime: O(n^2) 稳定
    * @function name - insertionSort 
    * @instance 
    * @param {Array} - arr
@@ -550,7 +575,7 @@ Function.prototype._method = function (name, fn) {
   })
   /**
    * 选择排序
-   * Runtime: O(n^2)
+   * Runtime: O(n^2) 不稳定
    * @function name - selectionSort 
    * @instance 
    * @param {Array} - arr

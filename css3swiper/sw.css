@@ -1,0 +1,92 @@
+.cr-container label:before {
+    content: '';
+    width: 34px;
+    height: 34px;
+    background: rgba(130, 195, 217, 0.9);
+    position: absolute;
+    left: 50%;
+    margin-left: -13px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.3);
+    z-index: -1;
+}
+
+.cr-container label:after {
+    width: 1px;
+    height: 400px;
+    content: '';
+    background: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    position: absolute;
+    bottom: -20px;
+    right: 0px;
+}
+
+.cr-container label.cr-label-img-4:after {
+    width: 0px;
+}
+
+.cr-container input.cr-selector-img-1:checked~label.cr-label-img-1,
+.cr-container input.cr-selector-img-2:checked~label.cr-label-img-2,
+.cr-container input.cr-selector-img-3:checked~label.cr-label-img-3,
+.cr-container input.cr-selector-img-4:checked~label.cr-label-img-4 {
+    color: #68abc2 !important;
+}
+
+.cr-container input.cr-selector-img-1:checked~label.cr-label-img-1:before,
+.cr-container input.cr-selector-img-2:checked~label.cr-label-img-2:before,
+.cr-container input.cr-selector-img-3:checked~label.cr-label-img-3:before,
+.cr-container input.cr-selector-img-4:checked~label.cr-label-img-4:before {
+    background: #fff;
+    box-shadow: 0px 0px 0px 4px rgba(104, 171, 194, 0.6);
+}
+
+.cr-container input.cr-selector-img-1:checked~.cr-bgimg,
+.cr-bgimg div span:nth-child(1) {
+    background-image: url(img/1.jpg);
+}
+
+.cr-container input.cr-selector-img-2:checked~.cr-bgimg,
+.cr-bgimg div span:nth-child(2) {
+    background-image: url(img/2.jpg);
+}
+
+.cr-container input.cr-selector-img-3:checked~.cr-bgimg,
+.cr-bgimg div span:nth-child(3) {
+    background-image: url(img/3.jpg);
+}
+
+.cr-container input.cr-selector-img-4:checked~.cr-bgimg,
+.cr-bgimg div span:nth-child(4) {
+    background-image: url(img/4.jpg);
+}
+
+.cr-container input:checked~.cr-bgimg div span {
+    animation: slideOut 0.6s ease-in-out;
+}
+
+@keyframes slideOut {
+    0% {
+        left: 0px;
+    }
+
+    100% {
+        left: 150px;
+    }
+}
+
+.cr-container input.cr-selector-img-1:checked~.cr-bgimg div span:nth-child(1),
+.cr-container input.cr-selector-img-2:checked~.cr-bgimg div span:nth-child(2),
+.cr-container input.cr-selector-img-3:checked~.cr-bgimg div span:nth-child(3),
+.cr-container input.cr-selector-img-4:checked~.cr-bgimg div span:nth-child(4) {
+    transition: left 0.5s ease-in-out;
+    animation: none;
+    left: 0px;
+    z-index: 10;
+}
+/* 选中状态下的标题显示 */
+.cr-container input.cr-selector-img-1:checked~.cr-titles h3:nth-child(1),
+.cr-container input.cr-selector-img-2:checked~.cr-titles h3:nth-child(2),
+.cr-container input.cr-selector-img-3:checked~.cr-titles h3:nth-child(3),
+.cr-container input.cr-selector-img-4:checked~.cr-titles h3:nth-child(4) {
+    opacity: 1!important;
+}

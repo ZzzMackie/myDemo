@@ -51,7 +51,15 @@ random.extend({//在随机对象上扩展方法
     constellation: function(date) {
         var constellations = ['白羊座', '金牛座', '双子座', '巨蟹座', '狮子座', '处女座', '天秤座', '天蝎座', '射手座', '摩羯座', '水瓶座', '双鱼座']
         return this.pick(constellations)
-    }
+    },
+    world: function(date) {
+        var constellations = ['战力提升', '精灵养成', '技能提升', '系统玩法']
+        return this.pick(constellations)
+    },
+    // innertitle: function(date) {
+    //     var constellations = ['技能', '精灵养成', '技能提升', '系统玩法']
+    //     return this.pick(constellations)
+    // }
 })
 
 const data = Mock.mock({
@@ -84,8 +92,20 @@ const data = Mock.mock({
         'color': '@color'
     }]
 })
+const newD = Mock.mock({
+    'list|4': [{
+        'title': '@world',
+        'innertitle|2': [{
+            'href': ['javascript:alert(\'敬请期待!!!\')','javascript:alert(\'敬请期待!!!\')','javascript:alert(\'敬请期待!!!\')'],
+            'img' : ['ossweb-img/item-img.jpg','ossweb-img/item-img.jpg','ossweb-img/item-img.jpg'],
+            'en-ptt': 'fb',
+            'ch': '技能'
+        }],
 
-console.log(JSON.stringify(data, null, 5))
+    }]
+})
+// console.log(JSON.stringify(data, null, 5))
+console.log(JSON.stringify(newD, null, 5))
 // console.log(JSON.stringify(data1, null, 5))
 // Mock.mock('http://192.168.1.53:8080', 'GET', {
 //     'name': '@name',
@@ -93,11 +113,10 @@ console.log(JSON.stringify(data, null, 5))
 //     'color': '@color'
 // })
 // $.ajax({
-//     url: 'http://192.168.1.53:81',
+//     url: 'http://192.168.1.53:12306',
 //     dataType: 'json',
+//     data: 1,
 //     sucess:function(){
-//         console.log(JSON.stringify(data, null, 4),status)
+        
 //     }
-// }).done(function (data, status, xhr) {
-//     // console.log(JSON.stringify(data, null, 4))
-// });
+// })
