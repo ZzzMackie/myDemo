@@ -230,7 +230,9 @@
         $FS.reverseWord('I\'m kobe brant')
         $FS.reverseString('I\'m kobe brant')
 		console.log("TCL: $FS.reverseString('I\'m kobe brant')", $FS.reverseString('I\'m kobe brant'))
-		console.log("TCL: $FS.reverseWord('I\'m kobe brant')", $FS.reverseWord('I\'m kobe brant'))
+        console.log("TCL: $FS.reverseWord('I\'m kobe brant')", $FS.reverseWord('I\'m kobe brant'))
+        window.addEventListener("DOMContentLoaded", $FS.orientationDetect, false);
+        window.addEventListener("orientationchange", $FS.orientationDetect, false);
     </script>
 </body>
 

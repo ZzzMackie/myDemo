@@ -60,6 +60,31 @@ Function.prototype._method = function (name, fn) {
    * @constructor FunSpace 
    */
   function FunSpace() { }
+  FunSpace._method( 'orientationDetect', function () {
+    var displayStr = "";
+    if (displayStr.length > 0) {
+      FunSpace.prototype.removeClass(document.body,displayStr);
+    }
+    switch (window.orientation) {
+        case 0:
+            //刘海在上边
+            displayStr = "direction_por";
+            break;
+        case -90:
+            //刘海在右边
+            displayStr = "direction_land_ops";
+            break;
+        case 90:
+            //刘海在左边
+            displayStr = "direction_land";
+            break;
+        case 180:
+            //刘海在下边
+            displayStr = "direction_por_ops";
+            break;
+    }
+    FunSpace.prototype.addClass(document.body,displayStr);
+})
   /**
    * 生成一个记忆函数
    * @function name - memoizer
@@ -552,7 +577,7 @@ Function.prototype._method = function (name, fn) {
           swapped = true;
         }
       }
-      if (!swapped) break;
+      if (!swapped) break;//减少外层循环
     }
     return arr;
   })
