@@ -21,6 +21,10 @@ html{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow: hidden;
   /* margin-top: .6rem; */
+}
+.sprite {
+    background: url(//game.gtimg.cn/images/3s/m/m201904/sprite.png) no-repeat 0 0/12.08rem 7.51rem;
 }
 </style>

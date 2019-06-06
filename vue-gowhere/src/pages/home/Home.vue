@@ -59,4 +59,7 @@ export default {
 .el-footer{
     padding: 0;
 }
+.el-main{
+         padding: 0; 
+}
 </style>
