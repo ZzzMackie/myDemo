@@ -60,31 +60,37 @@ Function.prototype._method = function (name, fn) {
    * @constructor FunSpace 
    */
   function FunSpace() { }
-  FunSpace._method( 'orientationDetect', function () {
+
+  /**
+   * 横竖屏判断
+   * @function name - orientationDetect
+   * @instance 
+   */
+  FunSpace._method('orientationDetect', function () {
     var displayStr = "";
     if (displayStr.length > 0) {
-      FunSpace.prototype.removeClass(document.body,displayStr);
+      FunSpace.prototype.removeClass(document.body, displayStr);
     }
     switch (window.orientation) {
-        case 0:
-            //刘海在上边
-            displayStr = "direction_por";
-            break;
-        case -90:
-            //刘海在右边
-            displayStr = "direction_land_ops";
-            break;
-        case 90:
-            //刘海在左边
-            displayStr = "direction_land";
-            break;
-        case 180:
-            //刘海在下边
-            displayStr = "direction_por_ops";
-            break;
+      case 0:
+        //刘海在上边
+        displayStr = "direction_por";
+        break;
+      case -90:
+        //刘海在右边
+        displayStr = "direction_land_ops";
+        break;
+      case 90:
+        //刘海在左边
+        displayStr = "direction_land";
+        break;
+      case 180:
+        //刘海在下边
+        displayStr = "direction_por_ops";
+        break;
     }
-    FunSpace.prototype.addClass(document.body,displayStr);
-})
+    FunSpace.prototype.addClass(document.body, displayStr);
+  })
   /**
    * 生成一个记忆函数
    * @function name - memoizer
@@ -129,6 +135,9 @@ Function.prototype._method = function (name, fn) {
       }
     };
   });
+  FunSpace._method('returnWeekday', function () {
+    return "今天是星期" + "日一二三四五六".charAt(new Date().getDay());
+  })
   /**
    * 函数防抖
    * @function name - debounce
@@ -145,7 +154,7 @@ Function.prototype._method = function (name, fn) {
 
     return function () {
       var args = Array.prototype.slice.call(arguments);
-      if (timer) clearTimeout(timer);
+      timer && clearTimeout(timer);
       timer = setTimeout(function () {
         func.apply(null, args);
       }, wait);
@@ -351,11 +360,7 @@ Function.prototype._method = function (name, fn) {
         throw new Error(n + " is Not in the range of arrays");
       }
       for (i; i < len; i++) {
-        if (this.indexOf(item, n) !== -1) {
-          return true;
-        } else {
-          return false;
-        }
+        return this.indexOf(item, n) !== -1;
       }
     });
   }
@@ -466,6 +471,26 @@ Function.prototype._method = function (name, fn) {
       ("00000" + ((Math.random() * 0x1000000) << 0).toString(16)).slice(-6)
     );
   });
+
+  /**
+   *
+   * Fisher–Yates洗牌算法
+   * @instance 
+   * @function name - shuffle
+   * @param {Array} - arr
+   * @return {String}
+   */
+  FunSpace._method('shuffle', function (arr) {
+    var n = arr.length, t, i;
+    while (n) {
+      i = Math.random() * n-- | 0;// |位运算符 二进制 全0为0有1为1，&全1为1有0为0：
+      t = arr[n];
+      arr[i] = arr[n];
+      arr[n] = t;
+    }
+    return arr;
+  })
+
   /**
    *  有序递归二分查找
    * @instance @function name - binary_search
@@ -480,12 +505,8 @@ Function.prototype._method = function (name, fn) {
     if (this._typeof(low) !== 'number' || this._typeof(high) !== 'number' || this._typeof(key) !== 'number' || this._typeof(arr) !== 'array') throw new Error(low + ' ' + high + ' ' + key + ' must be a number or ' + arr + 'is array');
     var mid = Math.round((low + high) / 2),
       len = arr.length;
-    if (low > high) {
-      return -1;
-    }
-    if (!(arr instanceof Array) || len < 2) {
-      return;
-    }
+    if (low > high) return -1;
+    if (!(arr instanceof Array) || len < 2) return;
     while (high > low) {
       if (key === arr[mid]) {
         return mid;
