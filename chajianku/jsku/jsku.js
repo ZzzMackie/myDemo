@@ -473,7 +473,7 @@ Function.prototype._method = function (name, fn) {
   });
 
   /**
-   *
+   * n&1===0为偶数
    * Fisher–Yates洗牌算法
    * @instance 
    * @function name - shuffle
@@ -483,10 +483,11 @@ Function.prototype._method = function (name, fn) {
   FunSpace._method('shuffle', function (arr) {
     var n = arr.length, t, i;
     while (n) {
-      i = Math.random() * n-- | 0;// |位运算符 二进制 全0为0有1为1，&全1为1有0为0：
-      t = arr[n];
-      arr[i] = arr[n];
-      arr[n] = t;
+      i = Math.random() * n-- | 0;// |位运算符 二进制 全0为0有1为1，&全1为1有0为0：^同为0异为1，<<左移 >>右移  >>>无符号右移运算用 0 填充所有空位。对于正数，这与有符号右移运算的操作一样，而负数则被作为正数来处理。这里主要是乱序后小数取整
+      // t = arr[n];
+      FunSpace.swap(arr, n, i)
+      // arr[i] = arr[n];
+      // arr[n] = t;
     }
     return arr;
   })
@@ -582,7 +583,7 @@ Function.prototype._method = function (name, fn) {
   /**
    * 冒泡排序
    * @function name - bubbleSort 
-   * Runtime: O(n^2) 不稳定
+   * Runtime: O(n^2) 稳定
    * @instance 
    * @param {Array} - arr
    * @return {Array}
