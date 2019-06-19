@@ -43,12 +43,16 @@
     }
    
      .comand > h4 + div{
-        display: none;
+        height: 0px;
+        opacity: 0;
         padding: 10px;
         color: #000;
+        transition: all .5s;
+        transition-timing-function: cubic-bezier(.18,.89,.32,1.27);
     }
      .comand > h4 + div:target{
-        display: block;
+        height: 10px;
+        opacity: 1;
     }
 
     

@@ -5,6 +5,9 @@
 	<meta content="服装" name="Keywords">
 	<meta content="英伦" name="description">
 	<style type="text/css" media="screen">
+		body{
+			background: linear-gradient(45deg, #8199af 0%,#b8c3ce 75%,#e3eaed 100%);
+		}
 		div{
 			position: absolute;
 			top: calc(50% - 50px);
@@ -17,6 +20,8 @@
 			transition: all .6s;
 			background-image: url('./image/bag.JPG');
 			background-size: 100% 100%;
+			animation: twele 3s ;
+			animation-timing-function: cubic-bezier(.18,.89,.32,1.27);
 		}
 		div::after{
 			position: absolute;
@@ -24,14 +29,60 @@
 			left: 0;
 			box-shadow: 10px 10px 15px rgba(0, 0, 0, .3);
 			opacity: 0;
-			transition: all .6s;
+			animation: af 1s infinite ;
+			animation-timing-function: cubic-bezier(.18,.89,.32,1.27);
 		}
-		div:hover{
+		@keyframes twele{
+			0%{
+				
+				transform: translate(0,0);
+			}
+			10%{
+				transform: translate(0,-100px);
+			}
+			20%{
+				transform: translate(0,0px);
+			}
+			30%{
+				transform: translate(0,-60px);
+			}
+			40%{
+				transform: translate(0,0);
+			}
+			50%{
+				transform: translate(0,-50px);
+			}
+			60%{
+				transform: translate(0,0);
+			}
+			70%{
+				transform: translate(0,-40px);
+			}
+			80%{
+				transform: translate(0,0);
+			}
+			90%{
+				transform: translate(0,-20px);
+			}
+			100%{
+				transform: translate(0,0px);
+			}
+		}
+		@keyframes af{
+			0%{
+				
+				opacity: 0;
+			}
+			100%{
+				opacity: 1;
+			}
+		}
+		/* div:hover{
 			transform: scale(1.5, 1.5);
-		}
-		div:hover div::after{
+		} */
+		/* div:hover div::after{
 			opacity: 1;
-		}
+		} */
 	</style>
 </head>
 <body>

@@ -27,4 +27,7 @@ html{
 .sprite {
     background: url(//game.gtimg.cn/images/3s/m/m201904/sprite.png) no-repeat 0 0/12.08rem 7.51rem;
 }
+.db{
+  text-indent: -9999rem;
+}
 </style>
