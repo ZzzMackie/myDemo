@@ -306,7 +306,7 @@ Function.prototype._method = function (name, fn) {
       obj = "object";
     for (var key in origin) {
       if (origin.hasOwnProperty(key)) {
-        if (typeof origin[key] !== obj) {
+        if (typeof origin[key] !== obj || origin[prop] === null) {
           target[key] = origin[key];
         } else if (origin[key] !== null && typeof origin[key] === obj) {
           target[key] = toStr.call(origin[key]).slice(8, -1) === arrayStr ? [] : {};
@@ -319,7 +319,11 @@ Function.prototype._method = function (name, fn) {
   /**
    * Json深拷贝
    * @instance @function name - jsonDClone
-   * 
+   * 注意1.如果obj里面有时间对象，则JSON.stringify后再JSON.parse的结果，时间将只是字符串的形式。而不是时间对象；
+   * 2.如果obj里有RegExp、Error对象，则序列化的结果将只得到空对象；
+   * 3.如果obj里有函数，undefined，则序列化的结果会把函数或 undefined丢失；
+   * 4.如果obj里有NaN、Infinity和-Infinity，则序列化的结果会变成null
+   * 5、JSON.stringify()只能序列化对象的可枚举的自有属性，例如 如果obj中的对象是有构造函数生成的， 则使用JSON.parse(JSON.stringify(obj))深拷贝后，会丢弃对象的constructor；
    * @param {Object} - obj
    * @return {Object}
    */
@@ -410,7 +414,7 @@ Function.prototype._method = function (name, fn) {
   Array._method('unique', function () {
     var newArr = [];
     this.forEach(function (ele) {
-      newArr.indexOf(ele) === -1 && newArr.push(ele);
+      newArr.includes(ele) === -1 && newArr.push(ele);
     });
     return newArr;
   })
@@ -483,7 +487,7 @@ Function.prototype._method = function (name, fn) {
   FunSpace._method('shuffle', function (arr) {
     var n = arr.length, t, i;
     while (n) {
-      i = Math.random() * n-- | 0;// |位运算符 二进制 全0为0有1为1，&全1为1有0为0：^同为0异为1，<<左移 >>右移  >>>无符号右移运算用 0 填充所有空位。对于正数，这与有符号右移运算的操作一样，而负数则被作为正数来处理。这里主要是乱序后小数取整
+      i = Math.random() * n-- | 0;// |位运算符 二进制 全0为0有1为1，&全1为1有0为0：^同为0异为1 不进位的加法，a<<b左移a*2^b a>>b右移 a/2^b  >>>无符号右移运算用 0 填充所有空位。对于正数，这与有符号右移运算的操作一样，而负数则被作为正数来处理。这里主要是乱序后小数取整
       // t = arr[n];
       FunSpace.swap(arr, n, i)
       // arr[i] = arr[n];
