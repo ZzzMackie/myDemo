@@ -4,16 +4,28 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "autoprefixer": "^9.6.1",
     "jquery": "^3.4.1",
     "jsdom": "^15.1.0",
     "mine-jsku-es5": "^1.0.0",
-    "mockjs": "^1.0.1-beta3"
+    "mockjs": "^1.0.1-beta3",
+    "postcss": "^7.0.17",
+    "postcss-cli": "^6.1.3"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "buildData": "node index.js > log-data.json"
+    "buildData": "node index.js > log-data.json",
+    "postcss": "postcss -u autoprefixer -o outfile.css infile.css"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": [
+    "defaults",
+    "ie >= 8",
+    "Firefox >= 3",
+    "Opera >= 10.1",
+    "last 4 versions",
+    "> 1%"
+  ]
 }

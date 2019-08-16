@@ -9,15 +9,39 @@
     <title>是男人就坚持30秒</title>
     <link rel="shortcut icon" type="image/png" />
     <link rel="stylesheet" type="text/css" href="newBalls.css">
+    <link rel="stylesheet" type="text/css" href="animation.css">
+    
 </head>
 
 <body>
-    <span id="timer">马上开始</span>
-    <div id="div1">
+    <div class="set_4_button2 raised hoverable">
+        <div class="anim"></div>
+        <span id="timer">马上开始</span>
+    </div>
+    <div id="diaLog" >
+        <p class="dialog_text">wasda</p>
+        <p class="dialog_man">wasda</p>
+        <p class="dialog_max">wasda</p>
+        <a class="restart">重新开始</a>
+    </div>
+    <div id="div1" class="lightSpeedIn">
         <div id="move"></div>
     </div>
-    <p>游戏规则：鼠标移动到红色部分，拖动红块，避免碰到绿色部分，不要碰到黑色区域，坚持的时间越长你越牛X！是男人就至少坚持30秒，本游戏支持IE，Chrome，Firefox，safari等浏览器！
+    <div class="menuPanel bounceInDown">
+        <div class="topBar">
+            <ul class="top_tab">
+                <li class="top_tab_item">控制</li>
+                <li class="top_tab_item">信息</li>
+                <li class="top_tab_item">无无</li>
+                <li class="top_tab_item">无无</li>
+            </ul>
+            <i class="close"></i>
+        </div>
+    </div>
+    <p>游戏规则：鼠标移动到红色部分，拖动红块，避免碰到绿色部分，不要碰到黑色区域，坚持的时间越长你越牛X！是男人就至少坚持30秒，本游戏支持IE，Chrome，Firefox，safari等浏览器！</p>
 </body>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="newballs.js">
 </script>
 
