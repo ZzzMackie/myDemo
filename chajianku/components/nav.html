@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="components.css">
     <style>
         html {
             font-size: calc(100vw/750*100);
@@ -128,6 +129,109 @@
             
             
         /* 不影响背景图片位置设置边距 border-right: 50px solid transparent */
+        .contentx{
+            width: 300px;
+            height: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            background: #fff;
+            z-index: 21;
+            color: #000;
+            transform: translate(-50%,-50%);
+        }
+        .mask{
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: #000;
+            opacity: .8;
+            z-index: 20;
+        }
+        .logo{
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1.5rem;
+            height: 1rem;
+            animation: logoRun .01s ease 2s both;
+            overflow: hidden;
+        }
+        .border{
+            position: absolute;
+            background: #fff;
+        }
+        .b1{
+            top: 0rem;
+            left: -1.7rem;
+            animation: left-in .5s cubic-bezier(.25,.46,.45,.94) .8s both;
+        }
+        .b2{
+            top: -1.2rem;
+            right: 0rem;
+            animation: top-in .3s linear both;
+        }
+        .b4{
+            top: 1rem;
+            left: 0rem;
+            animation: bottom-in .3s linear .5s both;
+        }
+        .b3{
+            right: -1.7rem;
+            bottom: 0rem;
+            animation: right-in .3s linear .22s both;
+        }
+        .b2,.b4{
+            width: .1rem;
+            height: 1rem;
+        }
+        .b1,.b3{
+            width: 1.5rem;
+            height: .1rem;
+        }
+        @keyframes top-in {
+            from{
+                transform: translateY(0);
+            }
+            to{
+                transform: translateY(1.2rem);
+            }
+        }
+        @keyframes right-in {
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(-1.7rem);
+            }
+        }
+        @keyframes bottom-in {
+            from{
+                transform: translateY(0);
+            }
+            to{
+                transform: translateY(-1rem);
+            }
+        }
+        @keyframes left-in {
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(1.7rem);
+            }
+        }
+        /* @keyframes logoRun {
+            from{
+                border: none;
+            }
+            to{
+                border: 0.1rem solid #fff;
+            }
+        } */
     </style>
 </head>
 
@@ -140,15 +244,131 @@
     </div>
     <i class="icon"></i>
     <div class="s" id="k">1
-        <!-- <div class="c">2
+        <div class="c">2
             <div class = "a">3</div>
-        </div> -->
+        </div>
     </div>
     <div class="a"></div>
-    <script src="//ossweb-img.qq.com/images/js/jquery/jquery-1.11.3.min.js"></script>
+    <div class="logo">
+        <div class="border b1"></div>
+        <div class="border b2"></div>
+        <div class="border b3"></div>
+        <div class="border b4"></div>
+    </div>
+    <!-- <div class="contentx">x</div>
+    <div class="mask"></div> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="../jsku/jsku.js"></script>
     <script src="./components.js"></script>
     <script>
+        // $('.contentx').click(() => {
+        //     $('.contentx').hide()
+        //     $('.mask').hide();
+        // })
+        // $('.icon').click(() => {
+        //     $('.contentx').show()
+        //     $('.mask').show();
+        // })
         var k = document.getElementById('k');
         $('.header').navHeader({
             headerDesc: '三生三世十里桃花',

@@ -54,6 +54,8 @@ Function.prototype._method = function (name, fn) {
  * @instance {Object} - _FunSpace
  */
 (function () {
+  
+  let code = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".split(""); //索引表
   /**
    * 一个构造函数
    * @instance  
@@ -420,7 +422,7 @@ Function.prototype._method = function (name, fn) {
       len = arr.length;
     if (low > high) return -1;
     if (!(arr instanceof Array) || len < 2) return;
-    while (high > low) {
+    while (high >= low) {
       if (key === arr[mid]) {
         return mid;
       } else if (key > arr[mid]) {
@@ -431,6 +433,7 @@ Function.prototype._method = function (name, fn) {
         return this.binary_search(low, high, key, arr);
       }
     }
+    return -1;
   })
   /**
    * 递归归并排序
@@ -1044,6 +1047,96 @@ Function.prototype._method = function (name, fn) {
 
   })
   /**
+   * 编码base64
+   * @instance
+   * @function name - encodeBase64
+   * @param  {String} str
+   * @return {String}
+   */
+  ._method('encodeBase64', function(str) {
+    return FunSpace.binToBase64(FunSpace.stringToBin(str));
+  })
+  /**
+   * 解码base64
+   * @instance
+   * @function name - decodeBase64
+   * @param  {String} str
+   * @return {String}
+   */
+  ._method('decodeBase64', function(str) {
+    return FunSpace.BinToStr(FunSpace.base64ToBin(str));
+  })
+  /**
+   * 
+   * @description 将二进制序列转换为Base64编码
+   * @param {String}
+   * @return {String}
+   */
+  FunSpace.binToBase64 = function (bitString) {
+    var result = "";
+    var tail = bitString.length % 6;
+    var bitStringTemp1 = bitString.substr(0, bitString.length - tail);
+    var bitStringTemp2 = bitString.substr(bitString.length - tail, tail);
+    for (var i = 0; i < bitStringTemp1.length; i += 6) {
+      var index = parseInt(bitStringTemp1.substr(i, 6), 2);
+      result += code[index];
+    }
+    bitStringTemp2 += new Array(7 - tail).join("0");
+    if (tail) {
+      result += code[parseInt(bitStringTemp2, 2)];
+      result += new Array((6 - tail) / 2 + 1).join("=");
+    }
+    return result;
+  }
+  
+  /**
+   * 
+   * @description 将base64编码转换为二进制序列
+   * @param {String}
+   * @return {String}
+   */
+  FunSpace.base64ToBin = function (str) {
+    var bitString = "";
+    var tail = 0;
+    for (var i = 0; i < str.length; i++) {
+      if (str[i] != "=") {
+        var decode = code.indexOf(str[i]).toString(2);
+        bitString += (new Array(7 - decode.length)).join("0") + decode;
+      } else {
+        tail++;
+      }
+    }
+    return bitString.substr(0, bitString.length - tail * 2);
+  }
+  
+  /**
+   * 
+   * @description 将字符转换为二进制序列
+   * @param {String} str
+   * @return {String}
+   */
+  FunSpace.stringToBin = function stringToBin(str) {
+    var result = "";
+    for (var i = 0; i < str.length; i++) {
+      var charCode = str.charCodeAt(i).toString(2);
+      result += (new Array(9 - charCode.length).join("0") + charCode);
+    }
+    return result;
+  }
+ 
+  /**
+   * 
+   * @description 将二进制序列转换为字符串
+   * @param {String} Bin
+   */
+  FunSpace.BinToStr = function (Bin) {
+    var result = "";
+    for (var i = 0; i < Bin.length; i += 8) {
+      result += String.fromCharCode(parseInt(Bin.substr(i, 8), 2));
+    }
+    return result;
+  }
+  /**
    * @static FunSpace的静态方法
    * @instance @function name - merge 
    * 
@@ -1206,7 +1299,12 @@ Function.prototype._method = function (name, fn) {
     }
     return matArr;
   };
+
   window._FunSpace = window.$FS = new FunSpace();
 })();
 
+  
+  var base64 = function(str) {
+    return binToBase64(stringToBin(str));
+  }
 // module.exports = _FunSpace;
