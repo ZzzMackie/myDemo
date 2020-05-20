@@ -225,7 +225,7 @@ Function.prototype._method = function (name, fn) {
    */
   ._method("removeEvent", function (dom, type, fn, m) {
     //移除事件
-    if (!(dom instanceof HTMLElement)) throw new Error(dom + ' is not a Dom');
+    if (!(dom instanceof HTMLElement)) throw new Error(dom + ' is not a HTMLElement');
     if (this._typeof(fn) !== 'function') throw new Error(fn + ' must be a function')
     var m = m || false;
     if (window.removeEventListener) {

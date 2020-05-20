@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="id" height="800" width="1000">
+		
+	</canvas>
+
+	<script  type="text/javascript" charset="utf-8" async defer>
+
+		
+		
+		(function() {
+
+			var canvas = document.getElementById('id');
+			var ctx = canvas.getContext('2d');
+			ctx.fillStyle = '#ccc';
+			var x, y;
+			var H = canvas.height,
+				W = canvas.width;
+			ctx.fillRect(0, 0, W, H);
+
+			var Point = function(x, y) {
+			    return {x:x, y:y};
+			};
+
+			function Rect(x, y, w, h) {
+			    return {x:x, y:y, width:w, height:h};
+			}
+			var rect = Rect(50,50,100,50);
+			drawRoundedRect(rect, 25, ctx);
+ 			ctx.clearRect(50,50,100,50);
+			function drawRoundedRect(rect, r, ctx) {
+			    var ptA = Point(rect.x + r, rect.y);
+			    var ptB = Point(rect.x + rect.width, rect.y);
+			    var ptC = Point(rect.x + rect.width, rect.y + rect.height);
+			    var ptD = Point(rect.x, rect.y + rect.height);
+			    var ptE = Point(rect.x, rect.y);
+			    ctx.globalCompositeOperation = 'destination-out';
+			    ctx.strokeStyle = '#ccc';
+			    ctx.lineWidth = 20;
+			    ctx.beginPath();
+			    
+			    ctx.moveTo(ptA.x, ptA.y);
+			    ctx.arcTo(ptB.x, ptB.y, ptC.x, ptC.y, r);
+			    ctx.arcTo(ptC.x, ptC.y, ptD.x, ptD.y, r);
+			    ctx.arcTo(ptD.x, ptD.y, ptE.x, ptE.y, r);
+			    ctx.arcTo(ptE.x, ptE.y, ptA.x, ptA.y, r);
+			 
+			    ctx.stroke();
+			}
+		}())
+
+		// window.onmessage(function(){
+
+		// },'')
+	</script>
+</body>
+</html>

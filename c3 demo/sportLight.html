@@ -16,15 +16,27 @@
             justify-content: center;
             align-items: center;
             background: #000;
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            animation: animateBody 5s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
         }
-        h1{
+        h1,h4{
             font-family: Arial, Helvetica, sans-serif;
             font-size: 8em;
             color: #333;
             letter-spacing: -.03em;
-            position: relative;
+            position: absolute;
         }
-        h1::after{
+        h1{
+            z-index: 999;
+        }
+        h4{
+            font-size: 8em;
+            z-index: 1;
+            transform: translate3d(-16px,86px,16px) rotate3d(1,0,0,79deg);
+            opacity: .5;
+        }
+        h1::after,h4::after{
             position: absolute;
             content: attr(data-sportLight);
             top: 0;
@@ -38,7 +50,7 @@
             background-position: center center;
             -webkit-clip-path: ellipse(100px 100px at 0% 50%);
             clip-path: ellipse(100px 100px at 0% 50%);
-            animation: sportlight 5s infinite;
+            animation: sportlight 5s cubic-bezier(0.6, -0.28, 0.735, 0.045) infinite;
         }
         @keyframes sportlight {
             0%,100%{
@@ -50,9 +62,21 @@
                 clip-path: ellipse(100px 100px at 100% 50%);
             }
         }
+        @keyframes animateBody {
+            0%,100%{
+                background: #000;
+                opacity: .7;
+            }
+            50%{
+                background: #333;
+                opacity: .5;
+            }
+        }
     </style>
 </head>
 <body>
     <h1 data-sportLight="SportLight">SportLight</h1>
+    <h4 data-sportLight="SportLight">SportLight</h4>
+
 </body>
 </html>
