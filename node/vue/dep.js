@@ -1,4 +1,4 @@
-class Dep{
+export class Dep{
     constructor(params) {
         this._subs = [];/* 用来存放Watcher对象的数组 */
     }
@@ -11,4 +11,3 @@ class Dep{
         })
     }
 }
-module.exports = Dep;

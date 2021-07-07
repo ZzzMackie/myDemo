@@ -1,0 +1,20 @@
+{
+  "name": "qiankun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "element-ui": "^2.13.2",
+    "nprogress": "^0.2.0",
+    "qiankun": "^2.0.15"
+  },
+  "dependencies": {
+    "@types/nprogress": "^0.2.0",
+    "vue": "^2.6.11"
+  }
+}

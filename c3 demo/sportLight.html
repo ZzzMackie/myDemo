@@ -22,18 +22,18 @@
         }
         h1,h4{
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 8em;
             color: #333;
             letter-spacing: -.03em;
             position: absolute;
         }
         h1{
+            font-size: 4em;
             z-index: 999;
         }
         h4{
-            font-size: 8em;
+            font-size: 4em;
             z-index: 1;
-            transform: translate3d(-16px,86px,16px) rotate3d(1,0,0,79deg);
+            transform: translate3d(-2px,52px,16px) rotate3d(1,0,0,79deg);
             opacity: .5;
         }
         h1::after,h4::after{
@@ -72,11 +72,71 @@
                 opacity: .5;
             }
         }
+        #d{
+            color: aliceblue;
+            text-align: center;    
+            margin-top: -140px;
+
+        }
+        #d p{
+            background-color: aquamarine;
+            display: inline-block;
+            line-height: 26px;
+            padding: 0 10px;
+            position: relative;
+        }
+        p[data-longest] {
+            border-radius: 4px;
+        }
+        p[data-longest]::after,
+        p[data-longest]::before,
+        p[data-longer]::after,
+        p[data-longer]::before{
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 6px solid aquamarine;
+            border-radius: 50%;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            border-top-color: transparent;
+            top: 20px;
+        }
+        p[data-longest]::before{
+            left: 10px;
+            transform: rotate(-45deg);
+        }
+        p[data-longest]::after{
+            right: 10px;
+            transform: rotate(-135deg);
+        }
+        p[data-longer]::before{
+            left: 56px;
+            transform: rotate(-45deg);
+        }
+        p[data-longer]::after{
+            right: 56px;
+            transform: rotate(-135deg);
+        }
+        p[data-longer], p[data-short] {
+            border-radius:  0 0 4px 4px;
+        }
     </style>
 </head>
 <body>
     <h1 data-sportLight="SportLight">SportLight</h1>
     <h4 data-sportLight="SportLight">SportLight</h4>
-
+    <div id="d">
+        <div>
+            <p data-longest="1">这句话很长，比下面那个都长 长长长长</p>
+        </div>
+        <div>
+            <p data-longer="1">这句话比上面的短，比下面的长</p>
+        </div>
+        <div>
+            <p data-short="1">这句话最短</p>
+        </div>
+    </div>
 </body>
 </html>

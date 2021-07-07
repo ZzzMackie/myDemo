@@ -4,12 +4,16 @@
   "main": "jsku.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jsdoc": "jsdoc2md jsku.js > README.md"
+    "jsdoc": "jsdoc2md jsku.js > ./readmeDir/README.md"
   },
   "keywords": [
     "es5"
   ],
   "author": "mackiezzzz",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jsdoc-md": "^7.0.0",
+    "jsdoc-to-markdown": "^6.0.1"
+  }
 }

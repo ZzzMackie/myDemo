@@ -1,5 +1,7 @@
-const Dep = require('./dep');
-const Watcher = require('./Watcher');
+
+import {Dep} from'./dep.js';
+import {Watcher} from'./Watcher.js';
+
 
 function viewChange(val) {
     app.innerHTML = val
@@ -18,7 +20,7 @@ function defineReactive(obj, key, val) {//数据绑定
         },
         set: function reactiveSetter(newval) {
             if (newval === val) return;
-            // viewChange(newval); 
+            viewChange(newval); 
             dep.notify();
         }
     })

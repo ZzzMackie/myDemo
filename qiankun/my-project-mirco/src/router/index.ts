@@ -1,21 +1,19 @@
+ /* eslint-disable */
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
-import startQiankun from "../mirco/index";
-
-import apps from "../mirco/app";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
-    name: "Home",
+    path: "/about",
+    name: "About",
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/",
+    name: "Home",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -24,15 +22,10 @@ const routes: Array<RouteConfig> = [
   }
 ];
 
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes
-});
-router.beforeEach((to: any, from: any, next: any) => {
-  
-  startQiankun(apps);
-  next();
-});
+// const router = new VueRouter({
+//   mode: "history",
+//   base: process.env.BASE_URL,
+//   routes
+// });
 
-export default router;
+export default routes;

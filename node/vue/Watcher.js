@@ -1,5 +1,5 @@
-const Dep = require('./dep');
-class Watcher {
+import {Dep} from './dep.js';
+export class Watcher {
     constructor(params) {
         Dep.target = this;
     }
@@ -8,5 +8,3 @@ class Watcher {
     }
 }
 Dep.target = null;
-
-module.exports = Watcher
